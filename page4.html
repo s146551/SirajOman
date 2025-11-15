@@ -3,9 +3,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Natural Wonders - Siraj Oman</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .content-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .content-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .image-text-container {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            margin: 2rem 0;
+        }
+
+        .image-text-container.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .image-placeholder {
+            flex: 1;
+            text-align: center;
+        }
+
+        .placeholder-image {
+            font-size: 8rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            padding: 2rem;
+            display: inline-block;
+        }
+
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .text-content {
+            flex: 2;
+        }
+
+        .text-content h3 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .text-content ul, .text-content ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .text-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid-item .placeholder-image {
+            font-size: 3rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .grid-item p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+
+        .cta-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        
+    </style>
+
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Siraj Oman</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html">Locations & Places</a></li>
+                    <li><a href="page2.html">Activities in Oman</a></li>
+                    <li><a href="page3.html">Add a Location</a></li>
+                    <li><a href="page4.html">Oman's Natural Wonders</a></li>
+                    <li><a href="page5.html">Your Opinion</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Oman's Natural Wonders</h1>
+            
+            <!-- Introduction Paragraph -->
+            <div class="project-description">
+                <h2>Discover Oman's Breathtaking Landscapes</h2>
+                <p>Through Siraj Oman, we illuminate the diverse natural beauty that makes the Sultanate a unique destination. From towering mountains to pristine beaches, Oman's landscapes offer unforgettable experiences for every type of traveler.</p>
+            </div>
+
+            <!-- Section 1: Mountains -->
+            <div class="content-section">
+                <h2>The Majestic Mountains of Oman</h2>
+                <div class="image-text-container">
+                    <div class="image-placeholder">
+                        <div class="placeholder-image">🏔️</div>
+                        <p class="image-caption">Jebel Shams - The "Mountain of Sun"</p>
+                    </div>
+                    <div class="text-content">
+                        <p>Oman's mountain ranges offer some of the most spectacular scenery in the Arabian Peninsula. The Al Hajar mountains run like a backbone through the country, creating dramatic canyons and traditional villages that seem suspended in time.</p>
+                        
+                        <h3>Must-Visit Mountain Destinations:</h3>
+                        <ul>
+                            <li><strong>Jebel Shams:</strong> Oman's highest peak at 3,009 meters</li>
+                            <li><strong>Jebel Akhdar:</strong> The "Green Mountain" famous for rose gardens</li>
+                            <li><strong>Jabal Samhan:</strong> Home to the endangered Arabian leopard</li>
+                            <li><strong>Wadi Ghul:</strong> Known as the "Grand Canyon of Arabia"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Deserts -->
+            <div class="content-section">
+                <h2>The Golden Deserts</h2>
+                <div class="image-text-container reverse">
+                    <div class="text-content">
+                        <p>Oman's deserts are not just vast empty spaces, but living landscapes with unique ecosystems and rich Bedouin heritage. The dunes tell stories of ancient trade routes and nomadic traditions.</p>
+                        
+                        <h3>Desert Experiences Featured in Siraj Oman:</h3>
+                        <ol>
+                            <li>Sunset dune bashing in Wahiba Sands</li>
+                            <li>Traditional Bedouin camping under the stars</li>
+                            <li>Camel trekking across rolling dunes</li>
+                            <li>Stargazing in the clear desert skies</li>
+                            <li>Visiting desert oasis settlements</li>
+                        </ol>
+                    </div>
+                    <div class="image-placeholder">
+                        <div class="placeholder-image">🏜️</div>
+                        <p class="image-caption">Wahiba Sands - Endless golden dunes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Wadis and Beaches -->
+            <div class="content-section">
+                <h2>Wadis & Coastal Wonders</h2>
+                
+                <div class="image-grid">
+                    <div class="grid-item">
+                        <div class="placeholder-image">💧</div>
+                        <h4>Wadi Bani Khalid</h4>
+                        <p>Year-round water pools surrounded by date palms</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="placeholder-image">🏊</div>
+                        <h4>Wadi Shab</h4>
+                        <p>Hidden waterfalls and cave swimming</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="placeholder-image">🐠</div>
+                        <h4>Daymaniyat Islands</h4>
+                        <p>Marine reserve perfect for snorkeling</p>
+                    </div>
+                    <div class="grid-item">
+                        <div class="placeholder-image">🏖️</div>
+                        <h4>Al Mughsayl Beach</h4>
+                        <p>Dramatic cliffs and blowing holes</p>
+                    </div>
+                </div>
+
+                <div class="project-description">
+                    <h3>How Siraj Oman Helps You Explore</h3>
+                    <p>Our interactive map makes it easy to discover these natural wonders. Each location includes:</p>
+                    <ul>
+                        <li>Best times to visit</li>
+                        <li>Accessibility information</li>
+                        <li>Nearby amenities and accommodations</li>
+                        <li>Local guide recommendations</li>
+                        <li>Safety tips and seasonal considerations</li>
+                    </ul>
+                    <p>Whether you're planning a day trip or a multi-day adventure, Siraj Oman ensures you experience the best of Oman's natural beauty safely and conveniently.</p>
+                </div>
+            </div>
+
+        
+        </div>
+    </main>
     
 </body>
+<footer>
+    <p>&copy; 2025 Siraj Oman | <a href="index.html" style="color: #f39c12;">Home</a> | <a href="contact.html" style="color: #f39c12;">Contact</a></p>
+</footer>
 </html>
