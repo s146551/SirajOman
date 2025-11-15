@@ -36,13 +36,13 @@
         <h2>Suggestions</h2>
         
         <label>Name: </label>
-        <input type="text" name="name" >
+        <input type="text" name="name" required>
         <label>Phone Number: </label>
-        <input type="text" name="phone"> <br> <br>
+        <input type="text" name="phone" required> <br> <br>
 
         <label for="suggestions">Please Write your suggestions here: </label><br>
         
-        <textarea name="suggestions" wrap="soft" style="width: 25em; height: 6em;"></textarea> <br> <br>
+        <textarea name="suggestions" wrap="soft" style="width: 25em; height: 6em;" required></textarea> <br> <br>
         <button> Submit </button>
     </form>
     <hr> <br>
@@ -50,17 +50,17 @@
     <form action="https://httpbin.org/get" method="get" style="margin: 20px;">
         <h2>Rate our website </h2>
 
-        <label> How many star : </label>
-        <input type="radio" name="rate"> 1
-        <input type="radio" name="rate"> 2
-        <input type="radio" name="rate"> 3
-        <input type="radio" name="rate"> 4
-        <input type="radio" name="rate"> 5
+        <label> How many star: </label>
+        <input type="radio" name="rate" required> 1
+        <input type="radio" name="rate" required> 2
+        <input type="radio" name="rate" required> 3
+        <input type="radio" name="rate" required> 4
+        <input type="radio" name="rate" required> 5
         <br>
         <br>
 
         <label> What you like in our website: </label><br>
-        <textarea name="rate" wrap="soft" style="width: 25em; height: 6em;"></textarea> <br> <br>
+        <textarea name="rate" wrap="soft" style="width: 25em; height: 6em;" required></textarea> <br> <br>
         <button> Submit </button>
     </form>
 

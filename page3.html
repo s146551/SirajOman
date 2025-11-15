@@ -60,10 +60,10 @@
     <div class="form-container">
         <form action="https://httpbin.org/get" method="get">
             <label> Enter the name of the palce you want to add: </label>
-            <input type="text" name="placeName"> <br><br>
+            <input type="text" name="placeName" required> <br><br>
 
             <label> Please write a description for the place:  </label>
-            <input type="text" name="description" > <br> <br>
+            <input type="text" name="description" required> <br> <br>
 
             <h3>Activity type / Site type :</h3>
             <label> 
@@ -98,7 +98,7 @@
             <h3>Location Info :</h3>
             <label> In which Governorate </label>
 
-            <select name="Governorate">
+            <select name="Governorate" required>
                 <option > Ad Dakhiliyah </option>
                 <option > Ad Dhahirah </option>
                 <option > Al Batinah North </option>
@@ -113,7 +113,7 @@
             </select> <br> <br>
 
             <label>Location link on the map </label>
-            <input type="url" name="link" >
+            <input type="url" name="link" required>
 
             <h3>Services available at the location: </h3>
             <label> 
