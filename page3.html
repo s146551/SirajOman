@@ -23,6 +23,10 @@
             color: black;
             margin-bottom: 20px;
         }
+
+        #add_location {
+            padding: 80px;
+        }
     </style>
 
 </head>
@@ -57,8 +61,8 @@
     <hr>
 
 
-    <div class="form-container">
-        <form action="https://httpbin.org/get" method="get">
+    <div class="container">
+        <form action="https://httpbin.org/get" method="get" id="add_location">
             <label> Enter the name of the palce you want to add: </label>
             <input type="text" name="placeName" required> <br><br>
 
