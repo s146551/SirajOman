@@ -3,103 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add a new Location - Siraj Oman</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #006d77; 
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 20px;
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        #add_location {
+            padding: 80px;
+        }
+    </style>
+
 </head>
 
     <!-- This page is for a form to Add a New Location -->
 <body>
 
-    <form action="" method="get">
-        <label> Enter the name of the palce you want to add: </label>
-        <input type="text" name="placeName"> <br><br>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Siraj Oman</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html">Locations & Places</a></li>
+                    <li><a href="page2.html">Activities in Oman</a></li>
+                    <li><a href="page3.html">Add a Location</a></li>
+                    <li><a href="page4.html">Oman's Natural Wonders</a></li>
+                    <li><a href="page5.html">Your Opinion</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <label> Please write a description for the place:  </label>
-        <input type="text" name="description" > <br> <br>
+    <h1>Add a New Location</h1>
 
-        <h3>Activity type / Site type :</h3>
-        <label> 
-            natural
-        <input type="checkbox" name="type" value="natural" > 
-        </label>
-        <label> 
-            historic
-        <input type="checkbox" name="type" value="historic" > 
-        </label>
-        <label> 
-            cultural
-        <input type="checkbox" name="type" value="cultural" > 
-        </label>
-        <label> 
-            entertaining
-        <input type="checkbox" name="type" value="entertaining" > 
-        </label>
-        <label> 
-            shopping
-        <input type="checkbox" name="type" value="shopping" > 
-        </label>
-        <label> 
-            religious
-        <input type="checkbox" name="type" value="religious" > 
-        </label>
-        <label> 
-            other
-        <input type="checkbox" name="type" value="other" > 
-        </label>
+    <p>In this page you can submit a new location to be added to the database.</p>
 
-        <h3>Location Info :</h3>
-        <label> In which Governorate </label>
+    <hr>
 
-        <select name="Governorate">
-            <option > Ad Dakhiliyah </option>
-            <option > Ad Dhahirah </option>
-            <option > Al Batinah North </option>
-            <option > Al Batinah South </option>
-            <option > Al Buraimi </option>
-            <option > Al Wusta </option>
-            <option > Ash Sharqiyah North </option>
-            <option > Ash Sharqiyah South </option>
-            <option > Dhofar </option>
-            <option > Muscat </option>
-            <option > Musandam </option>
-        </select> <br> <br>
 
-        <label>Location link on the map </label>
-        <input type="url" name="link" >
+    <div class="container">
+        <form action="https://httpbin.org/get" method="get" id="add_location">
+            <label> Enter the name of the palce you want to add: </label>
+            <input type="text" name="placeName" required> <br><br>
 
-        <h3>Services available at the location: </h3>
-        <label> 
-            Car parking
-        <input type="checkbox" name="Services" value="Car parking" > 
-        </label>
-        <label> 
-            Restaurants/Kiosks
-        <input type="checkbox" name="Services" value="Restaurants/Kiosks" > 
-        </label>
-        <label> 
-            Toilets
-        <input type="checkbox" name="Services" value="Toilets" > 
-        </label>
-        <label> 
-            Internet
-        <input type="checkbox" name="Services" value="Internet" > 
-        </label>
-        <label> 
-            Tourist guidance
-        <input type="checkbox" name="Services" value="Tourist guidance" > 
-        </label>
-        <label> 
-            Seating areas / Rest areas
-        <input type="checkbox" name="Services" value="Seating areas / Rest areas" > 
-        </label>
-        <label> <br> <br>
+            <label> Please write a description for the place:  </label>
+            <input type="text" name="description" required> <br> <br>
 
-        <label>Photos for the place :</label>
-        <input type="file" accept="image/*" multiple> <br> <br>
+            <h3>Activity type / Site type :</h3>
+            <label> 
+                Natural
+            <input type="checkbox" name="type" value="natural" > 
+            </label>
+            <label> 
+                Historic
+            <input type="checkbox" name="type" value="historic" > 
+            </label>
+            <label> 
+                Cultural
+            <input type="checkbox" name="type" value="cultural" > 
+            </label>
+            <label> 
+                Entertaining
+            <input type="checkbox" name="type" value="entertaining" > 
+            </label>
+            <label> 
+                Shopping
+            <input type="checkbox" name="type" value="shopping" > 
+            </label>
+            <label> 
+                Religious
+            <input type="checkbox" name="type" value="religious" > 
+            </label>
+            <label> 
+                Other
+            <input type="checkbox" name="type" value="other" > 
+            </label>
 
-        <button> Submit </button>
-         
-    </form>
+            <h3>Location Info :</h3>
+            <label> In which Governorate </label>
+
+            <select name="Governorate" required>
+                <option > Ad Dakhiliyah </option>
+                <option > Ad Dhahirah </option>
+                <option > Al Batinah North </option>
+                <option > Al Batinah South </option>
+                <option > Al Buraimi </option>
+                <option > Al Wusta </option>
+                <option > Ash Sharqiyah North </option>
+                <option > Ash Sharqiyah South </option>
+                <option > Dhofar </option>
+                <option > Muscat </option>
+                <option > Musandam </option>
+            </select> <br> <br>
+
+            <label>Location link on the map </label>
+            <input type="url" name="link" required>
+
+            <h3>Services available at the location: </h3>
+            <label> 
+                Car parking
+            <input type="checkbox" name="Services" value="Car parking" > 
+            </label>
+            <label> 
+                Restaurants/Kiosks
+            <input type="checkbox" name="Services" value="Restaurants/Kiosks" > 
+            </label>
+            <label> 
+                Toilets
+            <input type="checkbox" name="Services" value="Toilets" > 
+            </label>
+            <label> 
+                Internet
+            <input type="checkbox" name="Services" value="Internet" > 
+            </label>
+            <label> 
+                Tourist guidance
+            <input type="checkbox" name="Services" value="Tourist guidance" > 
+            </label>
+            <label> 
+                Seating areas / Rest areas
+            <input type="checkbox" name="Services" value="Seating areas / Rest areas" > 
+            </label>
+            <label> <br> <br>
+
+            <label>Photos for the place:</label>
+            <input type="file" accept="image/*" multiple> <br> <br>
+
+            <button> Submit </button>
+            
+        </form>
+    </div>
 
     
 </body>
+<footer>
+    <p>&copy; 2025 Siraj Oman | <a href="index.html" style="color: #f39c12;">Home</a> | <a href="contact.html" style="color: #f39c12;">Contact</a> | <a href="about.html" style="color: #f39c12;">About</a></p>
+</footer>
 </html>

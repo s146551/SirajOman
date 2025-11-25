@@ -3,42 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your Opinion</title>
+    <link rel="stylesheet" href="styles.css">
+
+
 </head>
 
 <!-- This page contain 2 forms one for suggestions and another for rating -->
 <body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Siraj Oman</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html">Locations & Places</a></li>
+                    <li><a href="page2.html">Activities in Oman</a></li>
+                    <li><a href="page3.html">Add a Location</a></li>
+                    <li><a href="page4.html">Oman's Natural Wonders</a></li>
+                    <li><a href="page5.html">Your Opinion</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <form action="" method="get">
+    <form action="https://httpbin.org/get" method="get" style="margin: 20px;">
 
-        <h2>suggestions  </h2>
+        <h2>Suggestions</h2>
         
         <label>Name: </label>
-        <input type="text" name="name" >
+        <input type="text" name="name" required>
         <label>Phone Number: </label>
-        <input type="text" name="phone"> <br> <br>
+        <input type="text" name="phone" required> <br> <br>
 
-        <label>Please Write your suggestions here: </label>
+        <label for="suggestions">Please Write your suggestions here: </label><br>
         
-        <input type="text" name="suggestions"> <br> <br>
+        <textarea name="suggestions" wrap="soft" style="width: 25em; height: 6em;" required></textarea> <br> <br>
         <button> Submit </button>
     </form>
     <hr> <br>
 
-    <form action="" method="get">
+    <form action="https://httpbin.org/get" method="get" style="margin: 20px;">
         <h2>Rate our website </h2>
 
-        <label> How many star : </label>
-        <input type="radio" name="rate"> 1
-        <input type="radio" name="rate"> 2
-        <input type="radio" name="rate"> 3
-        <input type="radio" name="rate"> 4
-        <input type="radio" name="rate"> 5
+        <label> How many star: </label>
+        <input type="radio" name="rate" required> 1
+        <input type="radio" name="rate" required> 2
+        <input type="radio" name="rate" required> 3
+        <input type="radio" name="rate" required> 4
+        <input type="radio" name="rate" required> 5
         <br>
         <br>
 
-        <label> What you like in our website : </label>
-        <input type="text" name="rate">
+        <label> What you like in our website: </label><br>
+        <textarea name="rate" wrap="soft" style="width: 25em; height: 6em;" required></textarea> <br> <br>
         <button> Submit </button>
     </form>
 
@@ -48,4 +70,7 @@
 
     
 </body>
+<footer>
+    <p>&copy; 2025 Siraj Oman | <a href="index.html" style="color: #f39c12;">Home</a> | <a href="contact.html" style="color: #f39c12;">Contact</a> | <a href="about.html" style="color: #f39c12;">About</a></p>
+</footer>
 </html>

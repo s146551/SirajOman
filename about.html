@@ -3,9 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About - Siraj Oman</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* About Page Styles */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .about-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .about-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-section p {
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .about-section ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .about-section li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .feature-item h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+
 </head>
 <body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">Siraj Oman</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="page1.html">Locations & Places</a></li>
+                    <li><a href="page2.html">Activities in Oman</a></li>
+                    <li><a href="page3.html">Add a Location</a></li>
+                    <li><a href="page4.html">Oman's Natural Wonders</a></li>
+                    <li><a href="page5.html">Your Opinion</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>About Siraj Oman</h1>
+            
+            <div class="about-content">
+                <!-- Mission Section -->
+                <section class="about-section">
+                    <h2>Our Mission</h2>
+                    <p>Siraj Oman, which means "Lantern of Oman," is dedicated to illuminating the beauty and richness of Oman for both tourists and locals. Our mission is to create the most comprehensive and user-friendly platform for discovering the hidden gems and popular attractions across this beautiful country.</p>
+                </section>
+
+                <!-- What We Do Section -->
+                <section class="about-section">
+                    <h2>What We Do</h2>
+                    <p>We provide an interactive map-based platform that helps you:</p>
+                    <ul>
+                        <li>Discover amazing places across all regions of Oman</li>
+                        <li>Find activities that match your interests</li>
+                        <li>Get accurate information about opening hours and locations</li>
+                        <li>Read reviews and recommendations from other travelers</li>
+                    </ul>
+                </section>
+
+                <!-- Why Choose Us Section -->
+                <section class="about-section">
+                    <h2>Why Choose Siraj Oman?</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <h3>Comprehensive Database</h3>
+                            <p>We cover all governorates and wilayas of Oman, from Muscat to Dhofar.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>User-Friendly</h3>
+                            <p>Simple, intuitive interface designed for everyone to use easily.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Always Updated</h3>
+                            <p>Regular updates with new locations and current information.</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3>Free to Use</h3>
+                            <p>Completely free service for all users - locals and tourists alike.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Our Story Section -->
+                <section class="about-section">
+                    <h2>Our Story</h2>
+                    <p>Siraj Oman was born from a simple observation: while Oman is filled with incredible places to visit, finding comprehensive and organized information can be challenging. We wanted to create a central platform that makes exploration easy and enjoyable.</p>
+                    <p>Our team consists of Omani students who are passionate about sharing the beauty of our country with the world. We believe that every corner of Oman has something special to offer, and we're committed to helping you discover it.</p>
+                </section>            
+
+
+            </div>
+        </div>
+    </main>
     
 </body>
+<footer>
+    <p>&copy; 2025 Siraj Oman | <a href="index.html" style="color: #f39c12;">Home</a> | <a href="contact.html" style="color: #f39c12;">Contact</a> | <a href="about.html" style="color: #f39c12;">About</a></p>
+</footer>
 </html>
