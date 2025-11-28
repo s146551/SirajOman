@@ -46,10 +46,14 @@
 
 
   function getLocations(list) {
-    if (typeof list === 'undefined') list = locations;
+    if (typeof list === 'undefined') {
+      list = locations;
+    }
 
     var container = document.getElementById('locationsContainer');
-    if (!container) return;
+    if (!container) {
+      return;
+    }
     container.innerHTML = '';
 
 
@@ -110,7 +114,9 @@
     var gov_value = document.getElementById('govInput');
     var wilaya_value = document.getElementById('wilayaInput');
     var attr_value = document.getElementById('attrInput');
-    if (!gov_value || !wilaya_value || !attr_value) return;
+    if (!gov_value || !wilaya_value || !attr_value) {
+      return;
+    }
 
     var gov = gov_value.value;
     var wilaya = wilaya_value.value;
@@ -127,7 +133,7 @@
       return;
     }
     if (!attr) {
-      alert('Please enter an attraction.');
+      alert('Please enter an attraction');
       attr_value.focus();
       return;
     }
@@ -214,7 +220,7 @@
     var add_ID = ['govInput','wilayaInput','attrInput'];
     for (var j = 0; j < add_ID.length; j++) {
       var value = document.getElementById(add_ID[j]);
-      if (!el) {
+      if (!value) {
         continue;
       }
       value.onkeydown = function(element) {
@@ -279,13 +285,15 @@
       </div>
     </div>
 
-    <div class="row bg-info text-white text-center mb-3 mt-2 fw-bold">
-      <div class="col-md-4">Governorates</div>
-      <div class="col-md-4">Wilaya</div>
-      <div class="col-md-4">Tourist Attractions</div>
-    </div>
+  <div class=" container bg-light">
+      <div class="row bg-info text-white text-center mb-5 mt-2 fw-bold">
+        <div class="col-md-4">Governorates</div>
+        <div class="col-md-4">Wilaya</div>
+        <div class="col-md-4">Tourist Attractions</div>
+      </div>
 
-    <div id="locationsContainer"></div>
+      <div id="locationsContainer"></div>
+    </div>
   </div>
   
 
