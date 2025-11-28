@@ -7,6 +7,228 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"> </script>
   <title>Document</title>
+  <script>
+  function Location(governorate, wilaya, attraction) {
+    this.governorate = governorate || '';
+    this.wilaya = wilaya || '';
+    this.attraction = attraction || '';
+  }
+
+  var locations = [
+    new Location('Muscat','Matrah','Mutrah Souq'),
+    new Location('Muscat','Bausher','Royal Opera House Muscat'),
+    new Location('Muscat','Seeb','Sultan Qaboos Grand Mosque'),
+    new Location('Muscat','','Al Alam Palace'),
+
+    new Location('Al Batinah South','Barka','Sawadi Beach'),
+    new Location('Al Batinah South','Rustaq','Barka Souq'),
+    new Location('Al Batinah South','Al Musannah','Rustaq Fort'),
+    new Location('Al Batinah South',"Wadi Al Ma'awil",'Falaj Al Muysar'),
+    new Location('Al Batinah South','','Ayn Al Kasfah'),
+
+    new Location('Al Dakhiliya','Nizwa','Wadi Tanuf'),
+    new Location('Al Dakhiliya','Jabal Akhdar','Jabel Shams'),
+    new Location('Al Dakhiliya','Izki','Al Hoota Cave'),
+    new Location('Al Dakhiliya','Manah','Nizwa Fort'),
+    new Location('Al Dakhiliya','','Oman Across Ages Museum'),
+
+    new Location('Al Sharqiyah North','Dima Wa Tayeen',"A'Sharqiyah Sands"),
+    new Location('Al Sharqiyah North','Al Mudhaibi','Wadi Dayqah'),
+    new Location('Al Sharqiyah North','Ibra',"Wadi A'Tayyin"),
+    new Location('Al Sharqiyah North','','Wadi Bani Khalid'),
+
+    new Location('Dhofar','Salalah','Al Mughsayl Beach'),
+    new Location('Dhofar','Taqah','Jabal Samhan'),
+    new Location('Dhofar','Mirbat','Taqah Castle'),
+    new Location('Dhofar','Thumrait','Sumhuram Old City'),
+    new Location('Dhofar','','Wadi Darbat')
+  ];
+
+
+  function getLocations(list) {
+    if (typeof list === 'undefined') list = locations;
+
+    var container = document.getElementById('locationsContainer');
+    if (!container) return;
+    container.innerHTML = '';
+
+
+    var by_governorate = {};
+    for (var i = 0; i < list.length; i++) {
+      var loc = list[i];
+      var key = loc.governorate || 'unknown';
+      if (!by_governorate[key]) by_governorate[key] = [];
+      by_governorate[key].push(loc);
+    }
+
+    
+    var govKeys = Object.keys(by_governorate);    // i got this method from https://www.w3schools.com/jsref/jsref_object_keys.asp
+    for (var j = 0; j < govKeys.length; j++) {
+      var gov = govKeys[j];
+      var rows = by_governorate[gov];
+      for (var r = 0; r < rows.length; r++) {
+        var locItem = rows[r];
+
+        var isLast = false;
+        if (r === rows.length - 1) {
+          isLast = true;
+        }
+
+        var gov_col;
+        if (r === 0) {
+          gov_col = '<div class="col-md-4 fw-bold">' + gov + '</div>';
+        } else {
+          gov_col = '<div class="col-md-4"></div>';
+        }
+
+        var wilayaText = '';
+        if (locItem.wilaya) {
+          wilayaText = locItem.wilaya;
+        }
+        var wilaya_col = '<div class="col-md-4">' + wilayaText + '</div>';
+
+        var attrText = '';
+        if (locItem.attraction) {
+          attrText = locItem.attraction;
+        }
+        var attr_col = '<div class="col-md-4">' + attrText + '</div>';
+
+        if(r == rows.length-1){
+          var full_row = '<div class="row text-center mb-3 border-bottom">' + gov_col + wilaya_col + attr_col + '</div>';
+        }
+        else{
+          var full_row = '<div class="row text-center mb-3 ">' + gov_col + wilaya_col + attr_col + '</div>';
+        }
+
+        container.insertAdjacentHTML('beforeend', full_row);
+      }
+    }
+  }
+
+
+  function addLocation() {
+    var gov_value = document.getElementById('govInput');
+    var wilaya_value = document.getElementById('wilayaInput');
+    var attr_value = document.getElementById('attrInput');
+    if (!gov_value || !wilaya_value || !attr_value) return;
+
+    var gov = gov_value.value;
+    var wilaya = wilaya_value.value;
+    var attr = attr_value.value;
+
+    if (!gov) {
+      alert('please enter a governorate');
+      gov_value.focus();
+      return;
+    }
+    if (!wilaya) {
+      alert('please enter a wilaya');
+      wilaya_value.focus();
+      return;
+    }
+    if (!attr) {
+      alert('Please enter an attraction.');
+      attr_value.focus();
+      return;
+    }
+
+    locations.push(new Location(gov, wilaya, attr));
+    getLocations();
+    var addValues = document.getElementById('addValues');
+    if (addValues) {
+      addValues.reset();
+    }
+    gov_value.focus();
+  }
+
+
+
+  function searchLocations() {
+    var input = document.getElementById('searchInput');
+    var input_value = input.value;
+    var term = input_value.trim().toLowerCase();
+    if (!term) { 
+      getLocations();
+       return;
+       }
+
+    var filtered = [];
+    for (var i = 0; i < locations.length; i++) {
+      var loc = locations[i];
+
+      var match = false;
+      
+      if (loc.governorate.toLowerCase().indexOf(term) !== -1){
+         match = true;
+      }
+
+      if (loc.wilaya.toLowerCase().indexOf(term) !== -1){
+        match = true;
+      }
+
+      if (loc.attraction.toLowerCase().indexOf(term) !== -1) {
+        match = true;
+      }
+
+      if (match) {
+        filtered.push(loc);
+      }
+    }
+    getLocations(filtered);
+  }
+
+
+  window.onload = function() {
+    getLocations();
+
+    var search_button = document.getElementById('searchBtn');
+    var reset_button = document.getElementById('resetBtn');
+    var searchInput = document.getElementById('searchInput');
+
+    if (search_button) {
+      search_button.onclick = function() { 
+        searchLocations(); 
+      };
+    }
+
+    if (reset_button) {
+      reset_button.onclick = function() {
+        if (searchInput) {
+          searchInput.value = '';
+        }
+        getLocations();
+      };
+    }
+
+    if (searchInput) {
+      searchInput.onkeydown = function(element) {
+        if (element.key === 'Enter') {
+          if (element.preventDefault) {
+            element.preventDefault();
+          }
+          searchLocations();
+        }
+      };
+    }
+
+    var add_ID = ['govInput','wilayaInput','attrInput'];
+    for (var j = 0; j < add_ID.length; j++) {
+      var value = document.getElementById(add_ID[j]);
+      if (!el) {
+        continue;
+      }
+      value.onkeydown = function(element) {
+        if (element.key === 'Enter') {
+          if (element.preventDefault) {
+            element.preventDefault();
+          }
+          addLocation();
+        }
+      };
+    }
+  };
+
+</script>
 </head>
 <body>
 
@@ -32,140 +254,38 @@
   
   <div class="container mb-5">
 
-    <h2 class="text-center mb-4 text-primary">Locations & Places</h2>
+    <h2 class="text-center mb-4 fw-bold">Locations & Places</h2>
     <p class="text-center mb-4 fs-5"> The following shows some of the Oman governorates, wilayats and tourist attractions:</p>
 
+    <div class="row  mb-2">
+          <input id="searchInput" class="form-control form-control-sm mb-2" placeholder="Search governorate, wilaya or attraction">
+          <button class="btn btn-sm btn-outline-primary mb-2" id="searchBtn">Search</button>
+          <button class="btn btn-sm btn-outline-secondary mb-5" id="resetBtn">Reset</button>
+      </div>
 
-    <div class="row bg-info text-white text-center mb-3 fw-bold">
+      <div class="col">
+        <form id="addValues" class="row" onsubmit="event.preventDefault(); addLocation();">
+          <div class="col-4">
+            <input id="govInput" class="form-control" placeholder="Governorate" required>
+          </div>
+          <div class="col-4">
+            <input id="wilayaInput" class="form-control" placeholder="Wilaya" required>
+          </div>
+          <div class="col-4 ">
+            <input id="attrInput" class="form-control" placeholder="Attraction" required>
+          </div>
+          <button class="btn btn-sm btn-outline-primary mt-2" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row bg-info text-white text-center mb-3 mt-2 fw-bold">
       <div class="col-md-4">Governorates</div>
       <div class="col-md-4">Wilaya</div>
       <div class="col-md-4">Tourist Attractions</div>
     </div>
 
-
-    <div class="row text-center  mb-3">
-      <div class="col-md-4 fw-bold">Muscat</div>
-      <div class="col-md-4">Matrah</div>
-      <div class="col-md-4">Mutrah Souq</div>
-    </div>
-    <div class="row text-center  mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Bausher</div>
-      <div class="col-md-4">Royal Opera House Muscat</div>
-    </div>
-    <div class="row text-center  mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Seeb</div>
-      <div class="col-md-4">Sultan Qaboos Grand Mosque</div>
-    </div>
-    <div class="row text-center border-bottom mb-5">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Al Alam Palace</div>
-    </div>
-
-
-    <div class="row text-center mb-3">
-      <div class="col-md-4 fw-bold">Al Batinah South</div>
-      <div class="col-md-4">Barka</div>
-      <div class="col-md-4">Sawadi Beach</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Rustaq</div>
-      <div class="col-md-4">Barka Souq</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Al Musannah</div>
-      <div class="col-md-4">Rustaq Fort</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Wadi Al Ma'awil</div>
-      <div class="col-md-4">Falaj Al Muysar</div>
-    </div>
-    <div class="row text-center border-bottom mb-5">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Ayn Al Kasfah</div>
-    </div>
-
-
-    <div class="row text-center mb-3">
-      <div class="col-md-4 fw-bold">Al Dakhiliya</div>
-      <div class="col-md-4">Nizwa</div>
-      <div class="col-md-4">Wadi Tanuf</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Jabal Akhdar</div>
-      <div class="col-md-4">Jabel Shams</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Izki</div>
-      <div class="col-md-4">Al Hoota Cave</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Manah</div>
-      <div class="col-md-4">Nizwa Fort</div>
-    </div>
-    <div class="row text-center border-bottom mb-5">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Oman Across Ages Museum</div>
-    </div>
-
-
-    <div class="row text-center mb-3">
-      <div class="col-md-4 fw-bold">Al Sharqiyah North</div>
-      <div class="col-md-4">Dima Wa Tayeen</div>
-      <div class="col-md-4">A'Sharqiyah Sands</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Al Mudhaibi</div>
-      <div class="col-md-4">Wadi Dayqah</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Ibra</div>
-      <div class="col-md-4">Wadi A'Tayyin</div>
-    </div>
-    <div class="row text-center border-bottom mb-5">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Wadi Bani Khalid</div>
-    </div>
-
-
-    <div class="row text-center mb-3">
-      <div class="col-md-4 fw-bold">Dhofar</div>
-      <div class="col-md-4">Salalah</div>
-      <div class="col-md-4">Al Mughsayl Beach</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Taqah</div>
-      <div class="col-md-4">Jabal Samhan</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Mirbat</div>
-      <div class="col-md-4">Taqah Castle</div>
-    </div>
-    <div class="row text-center mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Thumrait</div>
-      <div class="col-md-4">Sumhuram Old City</div>
-    </div>
-    <div class="row text-center border-bottom mb-3">
-      <div class="col-md-4"></div>
-      <div class="col-md-4"></div>
-      <div class="col-md-4">Wadi Darbat</div>
-    </div>
+    <div id="locationsContainer"></div>
   </div>
   
 
