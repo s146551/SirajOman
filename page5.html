@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Opinion</title>
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+•   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 
 </head>
@@ -31,38 +32,78 @@
         </div>
     </header>
 
-    <form action="https://httpbin.org/get" method="get" style="margin: 20px;">
 
-        <h2>Suggestions</h2>
-        
-        <label>Name: </label>
-        <input type="text" name="name" required>
-        <label>Phone Number: </label>
-        <input type="text" name="phone" required> <br> <br>
+   <div class="container my-4">
 
-        <label for="suggestions">Please Write your suggestions here: </label><br>
-        
-        <textarea name="suggestions" wrap="soft" style="width: 25em; height: 6em;" required></textarea> <br> <br>
-        <button> Submit </button>
-    </form>
-    <hr> <br>
+    <!-- Suggestions Form -->
+    <div class="p-4 bg-light border rounded shadow-sm mb-5">
+        <h2 class="text-primary mb-3">Suggestions</h2>
 
-    <form action="https://httpbin.org/get" method="get" style="margin: 20px;">
-        <h2>Rate our website </h2>
+        <form action="https://httpbin.org/get" method="get">
 
-        <label> How many star: </label>
-        <input type="radio" name="rate" required> 1
-        <input type="radio" name="rate" required> 2
-        <input type="radio" name="rate" required> 3
-        <input type="radio" name="rate" required> 4
-        <input type="radio" name="rate" required> 5
-        <br>
-        <br>
+            <div class="row mb-3">
+                <div class="col-sm-6">
+                    <label class="form-label">Name:</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
 
-        <label> What you like in our website: </label><br>
-        <textarea name="rate" wrap="soft" style="width: 25em; height: 6em;" required></textarea> <br> <br>
-        <button> Submit </button>
-    </form>
+                <div class="col-sm-6">
+                    <label class="form-label">Phone Number:</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Please write your suggestions:</label>
+                <textarea name="suggestions" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <button class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+
+    <!-- Rating Form -->
+    <div class="p-4 bg-light border rounded shadow-sm">
+        <h2 class="text-success mb-3">Rate Our Website</h2>
+
+        <form action="https://httpbin.org/get" method="get">
+
+            <label class="form-label d-block">How many stars?</label>
+
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="1" class="form-check-input" id="rate1" required>
+                    <label class="form-check-label" for="rate1">1 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="2" class="form-check-input" id="rate2">
+                    <label class="form-check-label" for="rate2">2 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="3" class="form-check-input" id="rate3">
+                    <label class="form-check-label" for="rate3">3 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="4" class="form-check-input" id="rate4">
+                    <label class="form-check-label" for="rate4">4 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="5" class="form-check-input" id="rate5">
+                    <label class="form-check-label" for="rate5">5 ⭐</label>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">What do you like in our website?</label>
+                <textarea name="feedback" class="form-control" rows="4" required></textarea>
+            </div>
+
+            <button class="btn btn-success w-100">Submit</button>
+        </form>
 
 
 
