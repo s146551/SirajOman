@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a new Location - Siraj Oman</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"> </script>
-    <link rel="stylesheet" href="styles.css">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+•   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
 </head>
 
     <!-- This page is for a form to Add a New Location -->
@@ -31,106 +31,137 @@
             </nav>
         </div>
     </header>
-
-    <h1>Add a New Location</h1>
-
-    <p>In this page you can submit a new location to be added to the database.</p>
-
-    <hr>
+ 
+   
 
 
-    <div class="container-fluid">
-        <form action="https://httpbin.org/get" method="get" id="add_location">
-            <label> Enter the name of the palce you want to add: </label>
-            <input type="text" name="placeName" required> <br><br>
+  <div class="bg-primary-subtle p-4 rounded shadow-sm">
+    
+    <h1 class="text-primary">Add a New Location</h1>
+    <p class="text-secondary">In this page you can submit a new location to be added to the database.</p>
 
-            <label> Please write a description for the place:  </label>
-            <input type="text" name="description" required> <br> <br>
+    <form action="https://httpbin.org/get" method="get" id="add_location" class="mt-4">
 
-            <h3>Activity type / Site type :</h3>
-            <label> 
-                Natural
-            <input type="checkbox" name="type" value="natural" > 
-            </label>
-            <label> 
-                Historic
-            <input type="checkbox" name="type" value="historic" > 
-            </label>
-            <label> 
-                Cultural
-            <input type="checkbox" name="type" value="cultural" > 
-            </label>
-            <label> 
-                Entertaining
-            <input type="checkbox" name="type" value="entertaining" > 
-            </label>
-            <label> 
-                Shopping
-            <input type="checkbox" name="type" value="shopping" > 
-            </label>
-            <label> 
-                Religious
-            <input type="checkbox" name="type" value="religious" > 
-            </label>
-            <label> 
-                Other
-            <input type="checkbox" name="type" value="other" > 
-            </label>
+        <!-- Name + Description -->
+        <div class="row mb-3">
+            <div class="col-sm-6 mb-3">
+                <label class="form-label">Enter the name of the place:</label>
+                <input type="text" name="placeName" class="form-control" required>
+            </div>
 
-            <h3>Location Info :</h3>
-            <label> In which Governorate </label>
+            <div class="col-sm-6 mb-3">
+                <label class="form-label">Write a description for the place:</label>
+                <input type="text" name="description" class="form-control" required>
+            </div>
+        </div>
 
-            <select name="Governorate" required>
-                <option > Ad Dakhiliyah </option>
-                <option > Ad Dhahirah </option>
-                <option > Al Batinah North </option>
-                <option > Al Batinah South </option>
-                <option > Al Buraimi </option>
-                <option > Al Wusta </option>
-                <option > Ash Sharqiyah North </option>
-                <option > Ash Sharqiyah South </option>
-                <option > Dhofar </option>
-                <option > Muscat </option>
-                <option > Musandam </option>
-            </select> <br> <br>
+        <!-- Activity Type -->
+        <div class="row mb-4">
+            <div class="col-sm-6">
+                <h4 class="mt-2">Activity / Site Type:</h4>
 
-            <label>Location link on the map </label>
-            <input type="url" name="link" required>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="natural" class="form-check-input" id="natural">
+                    <label class="form-check-label" for="natural">Natural</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="historic" class="form-check-input" id="historic">
+                    <label class="form-check-label" for="historic">Historic</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="cultural" class="form-check-input" id="cultural">
+                    <label class="form-check-label" for="cultural">Cultural</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="entertaining" class="form-check-input" id="entertaining">
+                    <label class="form-check-label" for="entertaining">Entertaining</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="shopping" class="form-check-input" id="shopping">
+                    <label class="form-check-label" for="shopping">Shopping</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="religious" class="form-check-input" id="religious">
+                    <label class="form-check-label" for="religious">Religious</label>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" name="type" value="other" class="form-check-input" id="other">
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+            </div>
 
-            <h3>Services available at the location: </h3>
-            <label> 
-                Car parking
-            <input type="checkbox" name="Services" value="Car parking" > 
-            </label>
-            <label> 
-                Restaurants/Kiosks
-            <input type="checkbox" name="Services" value="Restaurants/Kiosks" > 
-            </label>
-            <label> 
-                Toilets
-            <input type="checkbox" name="Services" value="Toilets" > 
-            </label>
-            <label> 
-                Internet
-            <input type="checkbox" name="Services" value="Internet" > 
-            </label>
-            <label> 
-                Tourist guidance
-            <input type="checkbox" name="Services" value="Tourist guidance" > 
-            </label>
-            <label> 
-                Seating areas / Rest areas
-            <input type="checkbox" name="Services" value="Seating areas / Rest areas" > 
-            </label>
-            <label> <br> <br>
+            <!-- Location Info -->
+            <div class="col-sm-6">
+                <h4 class="mt-2">Location Info:</h4>
 
-            <label>Photos for the place:</label>
-            <input type="file" accept="image/*" multiple> <br> <br>
+                <label class="form-label">Governorate</label>
+                <select name="Governorate" class="form-select mb-3" required>
+                    <option>Ad Dakhiliyah</option>
+                    <option>Ad Dhahirah</option>
+                    <option>Al Batinah North</option>
+                    <option>Al Batinah South</option>
+                    <option>Al Buraimi</option>
+                    <option>Al Wusta</option>
+                    <option>Ash Sharqiyah North</option>
+                    <option>Ash Sharqiyah South</option>
+                    <option>Dhofar</option>
+                    <option>Muscat</option>
+                    <option>Musandam</option>
+                </select>
 
-            <button> Submit </button>
-            
-        </form>
-    </div>
+                <label class="form-label">Location link on the map</label>
+                <input type="url" name="link" class="form-control" required>
+            </div>
+        </div>
+
+        <!-- Services -->
+        <h4>Services available:</h4>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="form-check">
+                    <input type="checkbox" name="Services" value="Car parking" class="form-check-input" id="parking">
+                    <label class="form-check-label" for="parking">Car parking</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="Services" value="Restaurants/Kiosks" class="form-check-input" id="rest">
+                    <label class="form-check-label" for="rest">Restaurants / Kiosks</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="Services" value="Toilets" class="form-check-input" id="toilets">
+                    <label class="form-check-label" for="toilets">Toilets</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="Services" value="Internet" class="form-check-input" id="internet">
+                    <label class="form-check-label" for="internet">Internet</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="Services" value="Tourist guidance" class="form-check-input" id="guide">
+                    <label class="form-check-label" for="guide">Tourist guidance</label>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input type="checkbox" name="Services" value="Seating areas / Rest areas" class="form-check-input" id="seating">
+                    <label class="form-check-label" for="seating">Seating / Rest areas</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photos -->
+        <div class="mb-4">
+            <label class="form-label">Photos for the place:</label>
+            <input type="file" accept="image/*" multiple class="form-control">
+        </div>
+
+    
+        <button class="btn btn-primary w-100">Submit</button>
+
+    </form>
+</div>
 
     
 </body>
