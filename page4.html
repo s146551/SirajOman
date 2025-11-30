@@ -3,256 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natural Wonders - Siraj Oman</title>
+    <title>Natural Wonders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .content-section {
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .content-section:last-of-type {
-            border-bottom: none;
-        }
-
-        .content-section h2 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .image-text-container {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            margin: 2rem 0;
-        }
-
-        .image-text-container.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .image-placeholder {
-            flex: 1;
-            text-align: center;
-        }
-
-        .placeholder-image {
-            font-size: 8rem;
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            padding: 2rem;
-            display: inline-block;
-        }
-
-        .image-caption {
-            font-style: italic;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        .text-content {
-            flex: 2;
-        }
-
-        .text-content h3 {
-            color: #2c3e50;
-            margin: 1.5rem 0 1rem 0;
-        }
-
-        .text-content ul, .text-content ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .text-content li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .grid-item {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .grid-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .grid-item .placeholder-image {
-            font-size: 3rem;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .grid-item h4 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .grid-item p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            margin: 3rem 0;
-        }
-
-        .cta-section h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        
-    </style>
-
+    
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">Siraj Oman</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="page1.html">Locations & Places</a></li>
-                    <li><a href="page2.html">Activities in Oman</a></li>
-                    <li><a href="page3.html">Add a Location</a></li>
-                    <li><a href="page4.html">Oman's Natural Wonders</a></li>
-                    <li><a href="page5.html">Your Opinion</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Siraj Oman</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="page1.html">Locations & Places</a></li>
+            <li class="nav-item"><a class="nav-link" href="page2.html">Activities in Oman</a></li>
+            <li class="nav-item"><a class="nav-link" href="page3.html">Add a Location</a></li>
+            <li class="nav-item"><a class="nav-link" href="page4.html">Oman's Natural Wonders</a></li>
+            <li class="nav-item"><a class="nav-link" href="page5.html">Your Opinion</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tools & Fun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
+                <li><a class="dropdown-item" href="questionnaire.html">Feedback Form</a></li>
+                <li><a class="dropdown-item" href="calculator.html">Travel Calculator</a></li>
+                <li><a class="dropdown-item" href="funpage.html">Oman Memory Game</a></li>
+            </ul>
+            </li>
+        </ul>
         </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <h1>Oman's Natural Wonders</h1>
-            
-            <!-- Introduction Paragraph -->
-            <div class="project-description">
-                <h2>Discover Oman's Breathtaking Landscapes</h2>
-                <p>Through Siraj Oman, we illuminate the diverse natural beauty that makes the Sultanate a unique destination. From towering mountains to pristine beaches, Oman's landscapes offer unforgettable experiences for every type of traveler.</p>
-            </div>
-
-            <!-- Section 1: Mountains -->
-            <div class="content-section">
-                <h2>The Majestic Mountains of Oman</h2>
-                <div class="image-text-container">
-                    <div class="image-placeholder">
-                        <div class="placeholder-image">🏔️</div>
-                        <p class="image-caption">Jebel Shams - The "Mountain of Sun"</p>
-                    </div>
-                    <div class="text-content">
-                        <p>Oman's mountain ranges offer some of the most spectacular scenery in the Arabian Peninsula. The Al Hajar mountains run like a backbone through the country, creating dramatic canyons and traditional villages that seem suspended in time.</p>
-                        
-                        <h3>Must-Visit Mountain Destinations:</h3>
-                        <ul>
-                            <li><strong>Jebel Shams:</strong> Oman's highest peak at 3,009 meters</li>
-                            <li><strong>Jebel Akhdar:</strong> The "Green Mountain" famous for rose gardens</li>
-                            <li><strong>Jabal Samhan:</strong> Home to the endangered Arabian leopard</li>
-                            <li><strong>Wadi Ghul:</strong> Known as the "Grand Canyon of Arabia"</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 2: Deserts -->
-            <div class="content-section">
-                <h2>The Golden Deserts</h2>
-                <div class="image-text-container reverse">
-                    <div class="text-content">
-                        <p>Oman's deserts are not just vast empty spaces, but living landscapes with unique ecosystems and rich Bedouin heritage. The dunes tell stories of ancient trade routes and nomadic traditions.</p>
-                        
-                        <h3>Desert Experiences Featured in Siraj Oman:</h3>
-                        <ol>
-                            <li>Sunset dune bashing in Wahiba Sands</li>
-                            <li>Traditional Bedouin camping under the stars</li>
-                            <li>Camel trekking across rolling dunes</li>
-                            <li>Stargazing in the clear desert skies</li>
-                            <li>Visiting desert oasis settlements</li>
-                        </ol>
-                    </div>
-                    <div class="image-placeholder">
-                        <div class="placeholder-image">🏜️</div>
-                        <p class="image-caption">Wahiba Sands - Endless golden dunes</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Section 3: Wadis and Beaches -->
-            <div class="content-section">
-                <h2>Wadis & Coastal Wonders</h2>
-                
-                <div class="image-grid">
-                    <div class="grid-item">
-                        <div class="placeholder-image">💧</div>
-                        <h4>Wadi Bani Khalid</h4>
-                        <p>Year-round water pools surrounded by date palms</p>
-                    </div>
-                    <div class="grid-item">
-                        <div class="placeholder-image">🏊</div>
-                        <h4>Wadi Shab</h4>
-                        <p>Hidden waterfalls and cave swimming</p>
-                    </div>
-                    <div class="grid-item">
-                        <div class="placeholder-image">🐠</div>
-                        <h4>Daymaniyat Islands</h4>
-                        <p>Marine reserve perfect for snorkeling</p>
-                    </div>
-                    <div class="grid-item">
-                        <div class="placeholder-image">🏖️</div>
-                        <h4>Al Mughsayl Beach</h4>
-                        <p>Dramatic cliffs and blowing holes</p>
-                    </div>
-                </div>
-
-                <div class="project-description">
-                    <h3>How Siraj Oman Helps You Explore</h3>
-                    <p>Our interactive map makes it easy to discover these natural wonders. Each location includes:</p>
-                    <ul>
-                        <li>Best times to visit</li>
-                        <li>Accessibility information</li>
-                        <li>Nearby amenities and accommodations</li>
-                        <li>Local guide recommendations</li>
-                        <li>Safety tips and seasonal considerations</li>
-                    </ul>
-                    <p>Whether you're planning a day trip or a multi-day adventure, Siraj Oman ensures you experience the best of Oman's natural beauty safely and conveniently.</p>
-                </div>
-            </div>
-
+    </div>
+    </nav>
+    <main class="container mt-4">
+        <h1 class="text-center mb-4">Oman's Natural Wonders</h1>
         
+        <!-- Introduction Paragraph -->
+        <div class="project-description mb-5">
+            <h2 class="text-center">Discover Oman's Breathtaking Landscapes</h2>
+            <p class="text-center">Through Siraj Oman, we illuminate the diverse natural beauty that makes the Sultanate a unique destination. From towering mountains to pristine beaches, Oman's landscapes offer unforgettable experiences for every type of traveler.</p>
+        </div>
+
+        <!-- Section 1: Mountains -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <h2>The Majestic Mountains of Oman</h2>
+                <p>Oman's mountain ranges offer some of the most spectacular scenery in the Arabian Peninsula. The Al Hajar mountains run like a backbone through the country, creating dramatic canyons and traditional villages that seem suspended in time.</p>
+                <h3>Must-Visit Mountain Destinations:</h3>
+                <ul>
+                    <li><strong>Jebel Shams:</strong> Oman's highest peak at 3,009 meters</li>
+                    <li><strong>Jebel Akhdar:</strong> The "Green Mountain" famous for rose gardens</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="images/funpage/jebel-akhdar.jpg" class="img-fluid rounded shadow" alt="Jebel Akhdar">
+            </div>
+        </div>
+
+        <!-- Section 2: Deserts -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6 order-md-2">
+                <h2>The Golden Deserts</h2>
+                <p>Oman's deserts are not just vast empty spaces, but living landscapes with unique ecosystems and rich Bedouin heritage. The dunes tell stories of ancient trade routes and nomadic traditions.</p>
+                <h3>Desert Experiences:</h3>
+                <ol>
+                    <li>Sunset dune bashing in Wahiba Sands</li>
+                    <li>Traditional Bedouin camping under the stars</li>
+                    <li>Camel trekking across rolling dunes</li>
+                </ol>
+            </div>
+            <div class="col-md-6 order-md-1">
+                <img src="images/funpage/wahiba-sands.jpg" class="img-fluid rounded shadow" alt="Wahiba Sands">
+            </div>
+        </div>
+
+        <!-- Section 3: Wadis and Beaches -->
+        <div class="mb-5">
+            <h2 class="text-center mb-4">Wadis & Coastal Wonders</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/funpage/wadi-shab.jpg" class="card-img-top" alt="Wadi Shab">
+                        <div class="card-body">
+                            <h5 class="card-title">Wadi Shab</h5>
+                            <p class="card-text">Hidden waterfalls and cave swimming.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/placeholder_image_01.jpg" class="card-img-top" alt="Wadi Bani Khalid">
+                        <div class="card-body">
+                            <h5 class="card-title">Wadi Bani Khalid</h5>
+                            <p class="card-text">Year-round water pools surrounded by date palms.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/funpage/ras-al-jinz.jpg" class="card-img-top" alt="Ras al Jinz">
+                        <div class="card-body">
+                            <h5 class="card-title">Ras al Jinz</h5>
+                            <p class="card-text">Turtle nesting reserve.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-description mt-4">
+            <h3 class="text-center">How Siraj Oman Helps You Explore</h3>
+            <p class="text-center">Our interactive map makes it easy to discover these natural wonders. Each location includes:</p>
+            <ul class="list-unstyled text-center">
+                <li>Best times to visit</li>
+                <li>Accessibility information</li>
+                <li>Nearby amenities and accommodations</li>
+            </ul>
         </div>
     </main>
     
+    <footer class="bg-light text-center py-3 mt-4">
+        <p class="mb-0">&copy; 2025 Siraj Oman | 
+          <a href="index.html" class="text-primary">Home</a> | 
+          <a href="contact.html" class="text-primary">Contact</a> | 
+          <a href="about.html" class="text-primary">About</a>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
-<footer>
-    <p>&copy; 2025 Siraj Oman | <a href="index.html" style="color: #f39c12;">Home</a> | <a href="contact.html" style="color: #f39c12;">Contact</a> | <a href="about.html" style="color: #f39c12;">About</a></p>
-</footer>
 </html>

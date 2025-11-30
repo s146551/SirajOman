@@ -3,159 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Siraj Oman</title>
+    <title>About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
-
-    <style>
-        /* About Page Styles */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-section {
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .about-section:last-of-type {
-            border-bottom: none;
-        }
-
-        .about-section h2 {
-            color: #2c3e50;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .about-section p {
-            line-height: 1.7;
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
-        .about-section ul {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-        }
-
-        .about-section li {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .feature-item {
-            background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #f39c12;
-        }
-
-        .feature-item h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .feature-item p {
-            color: #666;
-            line-height: 1.6;
-            margin: 0;
-        }
-    </style>
-
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="index.html">Siraj Oman</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="page1.html">Locations & Places</a></li>
-                    <li><a href="page2.html">Activities in Oman</a></li>
-                    <li><a href="page3.html">Add a Location</a></li>
-                    <li><a href="page4.html">Oman's Natural Wonders</a></li>
-                    <li><a href="page5.html">Your Opinion</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Siraj Oman</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="page1.html">Locations & Places</a></li>
+            <li class="nav-item"><a class="nav-link" href="page2.html">Activities in Oman</a></li>
+            <li class="nav-item"><a class="nav-link" href="page3.html">Add a Location</a></li>
+            <li class="nav-item"><a class="nav-link" href="page4.html">Oman's Natural Wonders</a></li>
+            <li class="nav-item"><a class="nav-link" href="page5.html">Your Opinion</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tools & Fun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
+                <li><a class="dropdown-item" href="questionnaire.html">Feedback Form</a></li>
+                <li><a class="dropdown-item" href="calculator.html">Travel Calculator</a></li>
+                <li><a class="dropdown-item" href="funpage.html">Oman Memory Game</a></li>
+            </ul>
+            </li>
+        </ul>
         </div>
-    </header>
+    </div>
+    </nav>
+    <main class="container mt-4">
+        <h1 class="text-center mb-4">About Siraj Oman</h1>
+        
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2>Our Mission</h2>
+                <p class="lead">Siraj Oman, which means "Lantern of Oman," is dedicated to illuminating the beauty and richness of Oman for both tourists and locals. Our mission is to create the most comprehensive and user-friendly platform for discovering the hidden gems and popular attractions across this beautiful country.</p>
+            </div>
+        </div>
 
-    <main>
-        <div class="container">
-            <h1>About Siraj Oman</h1>
-            
-            <div class="about-content">
-                <!-- Mission Section -->
-                <section class="about-section">
-                    <h2>Our Mission</h2>
-                    <p>Siraj Oman, which means "Lantern of Oman," is dedicated to illuminating the beauty and richness of Oman for both tourists and locals. Our mission is to create the most comprehensive and user-friendly platform for discovering the hidden gems and popular attractions across this beautiful country.</p>
-                </section>
-
-                <!-- What We Do Section -->
-                <section class="about-section">
-                    <h2>What We Do</h2>
-                    <p>We provide an interactive map-based platform that helps you:</p>
-                    <ul>
-                        <li>Discover amazing places across all regions of Oman</li>
-                        <li>Find activities that match your interests</li>
-                        <li>Get accurate information about opening hours and locations</li>
-                        <li>Read reviews and recommendations from other travelers</li>
-                    </ul>
-                </section>
-
-                <!-- Why Choose Us Section -->
-                <section class="about-section">
-                    <h2>Why Choose Siraj Oman?</h2>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <h3>Comprehensive Database</h3>
-                            <p>We cover all governorates and wilayas of Oman, from Muscat to Dhofar.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>User-Friendly</h3>
-                            <p>Simple, intuitive interface designed for everyone to use easily.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Always Updated</h3>
-                            <p>Regular updates with new locations and current information.</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Free to Use</h3>
-                            <p>Completely free service for all users - locals and tourists alike.</p>
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="text-center mb-4">What We Do</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">Discover Places</h3>
+                                <p class="card-text">Explore amazing places across all regions of Oman using our interactive map.</p>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">Find Activities</h3>
+                                <p class="card-text">Filter and find activities that perfectly match your interests and preferences.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">Get Information</h3>
+                                <p class="card-text">Access accurate information about opening hours, precise locations, and more.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="card-title text-primary">Read Reviews</h3>
+                                <p class="card-text">Benefit from reviews and recommendations from other travelers and locals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <!-- Our Story Section -->
-                <section class="about-section">
-                    <h2>Our Story</h2>
-                    <p>Siraj Oman was born from a simple observation: while Oman is filled with incredible places to visit, finding comprehensive and organized information can be challenging. We wanted to create a central platform that makes exploration easy and enjoyable.</p>
-                    <p>Our team consists of Omani students who are passionate about sharing the beauty of our country with the world. We believe that every corner of Oman has something special to offer, and we're committed to helping you discover it.</p>
-                </section>            
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="text-center mb-4">Why Choose Siraj Oman?</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-primary shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-database-fill display-4 text-primary mb-3"></i>
+                                <h5 class="card-title">Comprehensive Database</h5>
+                                <p class="card-text">We cover all governorates and wilayas of Oman.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-success shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-person-check-fill display-4 text-success mb-3"></i>
+                                <h5 class="card-title">User-Friendly</h5>
+                                <p class="card-text">Intuitive interface designed for everyone.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-warning shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-arrow-clockwise display-4 text-warning mb-3"></i>
+                                <h5 class="card-title">Always Updated</h5>
+                                <p class="card-text">Regular updates with new locations and info.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-info shadow-sm">
+                            <div class="card-body text-center">
+                                <i class="bi bi-wallet-fill display-4 text-info mb-3"></i>
+                                <h5 class="card-title">Free to Use</h5>
+                                <p class="card-text">Completely free service for all users.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2>Our Story</h2>
+                <p>Siraj Oman was born from a simple observation: while Oman is filled with incredible places to visit, finding comprehensive and organized information can be challenging. We wanted to create a central platform that makes exploration easy and enjoyable.</p>
+                <p>Our team consists of Omani students who are passionate about sharing the beauty of our country with the world. We believe that every corner of Oman has something special to offer, and we're committed to helping you discover it.</p>
             </div>
         </div>
     </main>
-    
+
+    <footer class="bg-light text-center py-3 mt-4">
+        <p class="mb-0">&copy; 2025 Siraj Oman | 
+          <a href="index.html" class="text-primary">Home</a> | 
+          <a href="contact.html" class="text-primary">Contact</a> | 
+          <a href="about.html" class="text-primary">About</a>
+        </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
-<footer>
-    <p>&copy; 2025 Siraj Oman | <a href="index.html" style="color: #f39c12;">Home</a> | <a href="contact.html" style="color: #f39c12;">Contact</a> | <a href="about.html" style="color: #f39c12;">About</a></p>
-</footer>
 </html>
