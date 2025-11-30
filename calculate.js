@@ -1,56 +1,62 @@
-// calculateTotal()
-// Called when the form is submitted.
-// Reads input values, performs calculations, and displays the final total to the user.
+/**
+ * Calculates the total cost of a trip.
+ * This function is called when the form is submitted.
+ * It reads input values, performs calculations (base cost, transport, services, discounts),
+ * and displays the final total to the user.
+ * @returns {boolean} - Returns false to prevent the default form submission.
+ */
 function calculateTotal() {
-    //  Get user inputs from the form using
+    // Get user inputs from the form elements
     var locationPrice = document.getElementById("location").value;
     var visitors = document.getElementById("visitors").value;
     var transportCost = document.getElementById("transport").value;
 
-    // Convert to numbers for calculations
+    // Convert input values to numbers for mathematical calculations
     locationPrice = Number(locationPrice);
     visitors = Number(visitors);
     transportCost = Number(transportCost);
 
-    //Basic validation for visitors input
+    // Basic validation for the number of visitors input
     if (visitors <= 0) {
-        alert("Number of visitors must be at least 1.");
-        document.getElementById("visitors").focus();
-        return false;
+        alert("Number of visitors must be at least 1."); // Alert user for invalid input
+        document.getElementById("visitors").focus(); // Set focus to the visitors input field
+        return false; // Prevent form submission
     }
 
-    //Calculate base cost:
-    // base = price per person × number of visitors
+    // Calculate base cost: price per person multiplied by the number of visitors
     var baseCost = locationPrice * visitors;
 
-    //Add transport cost
+    // Add transport cost to the base cost
     var total = baseCost + transportCost;
 
-    //Add extra services cost (loop through checkboxes)
-    // This demonstrates loops + logical operators
+    // Calculate cost for extra services (loop through checkboxes)
+    // This section demonstrates using loops and conditional logic.
     var services = document.getElementsByName("services");
-    var serviceTotal = 0;
+    var serviceTotal = 0; // Initialize total cost for services
 
+    // Iterate over each service checkbox
     for (var i = 0; i < services.length; i++) {
+        // If a service is checked, add its value to the serviceTotal
         if (services[i].checked) {
             serviceTotal = serviceTotal + Number(services[i].value);
         }
     }
 
+    // Add the total service cost to the overall trip total
     total = total + serviceTotal;
 
-    //Apply a simple discount rule:
-    // If visitors >= 5 → give 5% discount
+    // Apply a simple discount rule:
+    // If the number of visitors is 5 or more, apply a 5% discount.
     if (visitors >= 5) {
-        var discount = total * 0.05;
-        total = total - discount;
+        var discount = total * 0.05; // Calculate 5% discount
+        total = total - discount; // Subtract discount from total
     }
 
-    //Display the final result
+    // Display the final calculated result to the user
     var resultBox = document.getElementById("result");
-    resultBox.style.display = "block";
-    resultBox.innerHTML = "Total Trip Cost: " + total.toFixed(2) + " OMR";
+    resultBox.style.display = "block"; // Make the result box visible
+    resultBox.innerHTML = "Total Trip Cost: " + total.toFixed(2) + " OMR"; // Format to 2 decimal places
 
-    // Prevent actual form submission
+    // Prevent the actual form from submitting and reloading the page
     return false;
 }
