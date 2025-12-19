@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Opinion</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="page5.js"> </script>
 </head>
 
 <!-- This page contain 2 forms one for suggestions and another for rating -->
@@ -47,26 +49,29 @@
     <div class="p-4 bg-light border rounded shadow-sm mb-5">
         <h2 class="text-primary mb-3">Suggestions</h2>
 
-        <form action="https://httpbin.org/get" method="get">
+        <form action="https://httpbin.org/get" method="get" onsubmit="return validateSuggestions()">
 
             <div class="row mb-3">
                 <div class="col-sm-6">
                     <label class="form-label">Name:</label>
-                    <input type="text" name="name" class="form-control" required>
+                    <input type="text" id="userName" class="form-control" required>
+                    <span id="nameError" class="text-danger small"></span>
                 </div>
 
                 <div class="col-sm-6">
                     <label class="form-label">Phone Number:</label>
-                    <input type="text" name="phone" class="form-control" required>
+                    <input type="text" id="userPhone" class="form-control" required>
+                    <span id="phoneError" class="text-danger small"></span>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Please write your suggestions:</label>
-                <textarea name="suggestions" class="form-control" rows="4" required></textarea>
+                <textarea id="userSuggestions" name="suggestions" class="form-control" rows="4" required></textarea>
+                <span id="suggestError" class="text-danger small"></span>
             </div>
 
-            <button class="btn btn-primary w-100">Submit</button>
+            <input type="submit" class="btn btn-primary w-100">
         </form>
     </div>
 
@@ -74,7 +79,7 @@
     <div class="p-4 bg-light border rounded shadow-sm">
         <h2 class="text-success mb-3">Rate Our Website</h2>
 
-        <form action="https://httpbin.org/get" method="get">
+        <form action="https://httpbin.org/get" method="get" onsubmit="return validateRating()">
 
             <label class="form-label d-block">How many stars?</label>
 
@@ -103,14 +108,16 @@
                     <input type="radio" name="rate" value="5" class="form-check-input" id="rate5">
                     <label class="form-check-label" for="rate5">5 ⭐</label>
                 </div>
+                <span id="rateError" class="text-danger d-block small"></span>
             </div>
 
             <div class="mb-3">
                 <label class="form-label">What do you like in our website?</label>
-                <textarea name="feedback" class="form-control" rows="4" required></textarea>
+                <textarea id="userFeedback" name="feedback" class="form-control" rows="4" required></textarea>
+                <span id="feedbackError" class="text-danger small"></span>
             </div>
 
-            <button class="btn btn-success w-100">Submit</button>
+            <input type="submit" class="btn btn-success w-100">
         </form>
     </div>
   </div>
