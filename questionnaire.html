@@ -48,18 +48,18 @@
         <h1 class="text-center text-success mb-4">Visitor Experience Questionnaire</h1>
         <p class="text-center text-secondary">Please tell us about your visit. Your feedback helps us improve!</p>
 
-        <form id="questionnaireForm" class="mt-4" onsubmit="return validateForm()">
+        <form id="questionnaireForm" action="questionnaire.php" method="post" class="mt-4" onsubmit="return validateForm()">
 
             <!-- Name + Email -->
             <div class="row mb-4">
                 <div class="col-md-6">
                     <label class="form-label fw-bold">Your Name:</label>
-                    <input type="text" id="name" class="form-control" required>
+                    <input type="text" id="name" name="visitor_name" class="form-control" required>
                 </div>
 
                 <div class="col-md-6">
                     <label class="form-label fw-bold">Email (Gmail only):</label>
-                    <input type="email" id="email" class="form-control" required>
+                    <input type="email" id="email" name="visitor_email" class="form-control" required>
                     <small class="text-muted">Must be a Gmail address.</small>
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <!-- Date of Visit -->
             <div class="mb-4">
                 <label class="form-label fw-bold">Date of visit:</label>
-                <input type="date" id="visitDate" class="form-control" required>
+                <input type="date" id="visitDate" name="visit_date" class="form-control" required>
             </div>
 
             <!-- First Time Visit -->
@@ -88,7 +88,7 @@
             <!-- Purpose -->
             <div class="mb-4">
                 <label class="form-label fw-bold">Purpose of your visit:</label>
-                <select id="purpose" class="form-select" required>
+                <select id="purpose" name="purpose" class="form-select" required>
                     <option value="none">Select...</option>
                     <option value="tourism">Tourism</option>
                     <option value="study">Study</option>
@@ -137,7 +137,7 @@
             <!-- Comments -->
             <div class="mb-4">
                 <label class="form-label fw-bold">Additional Comments:</label>
-                <textarea id="comments" class="form-control" rows="4" required></textarea>
+                <textarea id="comments" name="comments" class="form-control" rows="4" required></textarea>
             </div>
 
             <!-- Submit -->
