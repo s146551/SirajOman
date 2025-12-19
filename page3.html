@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a new Location</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    
+    <script src="page3.js"></script>
 </head>
 
     <!-- This page is for a form to Add a New Location -->
@@ -48,24 +48,27 @@
         <h1 class="text-primary">Add a New Location</h1>
         <p class="text-secondary">In this page you can submit a new location to be added to the database.</p>
 
-        <form action="https://httpbin.org/get" method="get" id="add_location" class="mt-4">
+        <form action="https://httpbin.org/get" method="get" id="add_location" class="mt-4" onsubmit=" return validatePage3()">
 
             <!-- Name + Description -->
             <div class="row mb-3">
                 <div class="col-sm-6 mb-3">
                     <label class="form-label">Enter the name of the place:</label>
-                    <input type="text" name="placeName" class="form-control" required>
+                    <input type="text" id="placeName" class="form-control">
+                    <span id="nameError" class="text-danger small"></span>
                 </div>
-
+            
                 <div class="col-sm-6 mb-3">
                     <label class="form-label">Write a description for the place:</label>
-                    <input type="text" name="description" class="form-control" required>
+                    <input type="text" id="description" class="form-control">
+                    <span id="descriptionError" class="text-danger small"></span>
                 </div>
             </div>
 
             <!-- Activity Type -->
-            <div class="row mb-4">
-                <div class="col-sm-6">
+            <div class="row mb-4" >
+                <div class="col-sm-6" id="activity">
+                    <span id="typeError" class="text-danger small"></span>
                     <h4 class="mt-2">Activity / Site Type:</h4>
 
                     <div class="form-check">
@@ -101,9 +104,9 @@
                 <!-- Location Info -->
                 <div class="col-sm-6">
                     <h4 class="mt-2">Location Info:</h4>
-
-                    <label class="form-label">Governorate</label>
-                    <select name="Governorate" class="form-select mb-3" required>
+                    <label class="form-label">Governorate</label><br>
+                    <span id="locationError" class="text-danger small"></span>
+                    <select id="Governorate" class="form-select mb-3" required>
                         <option value="none"> Select </option>
                         <option value="Ad Dakhiliyah">Ad Dakhiliyah</option>
                         <option value="Ad Dhahirah">Ad Dhahirah</option>
@@ -119,7 +122,7 @@
                     </select>
 
                     <label class="form-label">Location link on the map</label>
-                    <input type="url" name="link" class="form-control" required>
+                    <input type="url" id="link" class="form-control" required>
                 </div>
             </div>
 
@@ -167,7 +170,7 @@
             </div>
 
         
-            <button class="btn btn-primary w-100">Submit</button>
+            <input type="submit" class="btn btn-primary w-100"></button>
 
         </form>
     </div>
