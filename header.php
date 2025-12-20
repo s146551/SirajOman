@@ -4,14 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title><?php echo $pageTitle ?? 'Siraj Oman'; ?></title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <!-- Favicon for modern browsers (PNG) -->
-  <link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
-  <!-- Favicon for older browsers (ICO) - optional, but good for compatibility -->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">

@@ -1,0 +1,143 @@
+:root {
+    --primary-color: #0056b3; /* Darker blue, slightly custom */
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+
+    --brand-gold: #c29d5b; /* A touch of gold/sandy tone */
+    --brand-dark-blue: #0A192F; /* A very dark blue */
+    --brand-light-grey: #e9ecef;
+
+    --font-family-base: 'Roboto', sans-serif;
+    --heading-font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--brand-light-grey);
+    color: var(--dark-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font-family);
+    color: var(--brand-dark-blue);
+}
+
+/* Navbar Customization */
+.navbar {
+    background-color: var(--brand-dark-blue) !important;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: var(--light-color) !important;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--brand-gold) !important;
+}
+
+.dropdown-menu {
+    background-color: var(--brand-dark-blue);
+}
+
+.dropdown-item {
+    color: var(--light-color);
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+    color: var(--brand-dark-blue);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-dark-blue);
+    border-color: var(--brand-dark-blue);
+}
+
+.btn-info {
+    background-color: var(--info-color);
+    border-color: var(--info-color);
+}
+
+.btn-info:hover {
+    background-color: #138496; /* Darkened version of #17a2b8 */
+    border-color: #138496;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darkened version of #dc3545 */
+    border-color: #c82333;
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--brand-dark-blue) !important;
+    color: var(--light-color);
+    padding: 1.5rem 0;
+}
+
+footer a {
+    color: var(--brand-gold) !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Marquee (Scrolling Welcome Banner) */
+marquee {
+    background-color: var(--brand-dark-blue);
+    color: var(--brand-gold);
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Specific elements that might need adjustment for new colors */
+.text-primary { color: var(--primary-color) !important; }
+.text-secondary { color: var(--secondary-color) !important; }
+.text-success { color: var(--success-color) !important; }
+.text-info { color: var(--info-color) !important; }
+.text-warning { color: var(--warning-color) !important; }
+.text-danger { color: var(--danger-color) !important; }
+
+.bg-primary { background-color: var(--primary-color) !important; }
+.bg-secondary { background-color: var(--secondary-color) !important; }
+.bg-info { background-color: var(--info-color) !important; }
+.bg-light { background-color: var(--brand-light-grey) !important; }
+.bg-dark { background-color: var(--dark-color) !important; }
