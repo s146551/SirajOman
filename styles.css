@@ -1,56 +1,87 @@
 :root {
-    --primary-color: #0056b3; /* Darker blue, slightly custom */
-    --secondary-color: #6c757d;
+    /* Modern, clean, and vibrant palette */
+    --primary-color: #20c997; /* Vibrant Teal/Mint Green */
+    --secondary-color: #6c757d; /* Muted Grey */
     --success-color: #28a745;
     --danger-color: #dc3545;
     --info-color: #17a2b8;
     --warning-color: #ffc107;
-    --light-color: #f8f9fa;
-    --dark-color: #343a40;
 
-    --brand-gold: #c29d5b; /* A touch of gold/sandy tone */
-    --brand-dark-blue: #0A192F; /* A very dark blue */
-    --brand-light-grey: #e9ecef;
+    --navbar-bg: #212529; /* Darker, slightly softer black for contrast */
+    --footer-bg: #212529; /* Same as navbar for consistency */
+    --body-bg: #f8f9fa;   /* Very light gray/off-white */
+    --text-color: #343a40; /* Dark grey for readability */
+    --heading-color: #212529; /* Dark color for headings */
+    --accent-color: #fd7e14; /* Vibrant orange for highlights/links */
 
     --font-family-base: 'Roboto', sans-serif;
     --heading-font-family: 'Montserrat', sans-serif;
+
+    /* RGB values for dynamic use in JS or CSS functions */
+    --primary-color-rgb: 32, 201, 151; 
 }
 
 body {
     font-family: var(--font-family-base);
-    background-color: var(--brand-light-grey);
-    color: var(--dark-color);
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font-family);
-    color: var(--brand-dark-blue);
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+    font-weight: 700; /* Make headings bolder */
+}
+
+/* Global Image Styling */
+img {
+    border-radius: 0.5rem; /* Slightly rounded corners for all images */
+    max-width: 100%;
+    height: auto;
+    display: block; /* Remove extra space below images */
 }
 
 /* Navbar Customization */
 .navbar {
-    background-color: var(--brand-dark-blue) !important;
+    background-color: var(--navbar-bg) !important;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
 }
 
-.navbar-brand, .navbar-nav .nav-link {
-    color: var(--light-color) !important;
+.navbar-brand {
+    font-family: var(--heading-font-family);
+    font-weight: 700;
+    color: var(--primary-color) !important; /* Brand name in primary color */
 }
 
-.navbar-nav .nav-link:hover {
-    color: var(--brand-gold) !important;
+.navbar-nav .nav-link {
+    color: var(--text-light) !important; /* Light text for navigation */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important; /* Primary color on hover/active */
 }
 
 .dropdown-menu {
-    background-color: var(--brand-dark-blue);
+    background-color: var(--navbar-bg);
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .dropdown-item {
-    color: var(--light-color);
+    color: var(--text-light);
+    transition: background-color 0.3s ease;
 }
 
 .dropdown-item:hover {
     background-color: var(--primary-color);
-    color: var(--light-color);
+    color: var(--navbar-bg); /* Dark text on primary hover */
 }
 
 
@@ -68,67 +99,101 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-title {
-    color: var(--brand-dark-blue);
+    color: var(--heading-color);
 }
+
+/* Badges (e.g., in cards) */
+.badge {
+    border-radius: 0.3rem;
+    padding: 0.4em 0.7em;
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
 
 /* Buttons */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--brand-dark-blue);
-    border-color: var(--brand-dark-blue);
+    background-color: #1a9e78; /* Darkened primary */
+    border-color: #1a9e78;
 }
 
 .btn-info {
     background-color: var(--info-color);
     border-color: var(--info-color);
+    transition: all 0.3s ease;
 }
 
 .btn-info:hover {
-    background-color: #138496; /* Darkened version of #17a2b8 */
+    background-color: #138496; /* Darkened info */
     border-color: #138496;
 }
 
 .btn-danger {
     background-color: var(--danger-color);
     border-color: var(--danger-color);
+    transition: all 0.3s ease;
 }
 
 .btn-danger:hover {
-    background-color: #c82333; /* Darkened version of #dc3545 */
+    background-color: #c82333; /* Darkened danger */
     border-color: #c82333;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darkened success */
+    border-color: #218838;
 }
 
 
 /* Footer */
 footer {
-    background-color: var(--brand-dark-blue) !important;
-    color: var(--light-color);
+    background-color: var(--footer-bg) !important;
+    color: var(--text-light);
     padding: 1.5rem 0;
+    font-size: 0.9rem;
 }
 
 footer a {
-    color: var(--brand-gold) !important;
+    color: var(--primary-color) !important; /* Footer links in primary color */
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 footer a:hover {
+    color: var(--accent-color) !important; /* Accent color on hover */
     text-decoration: underline;
 }
 
 /* Marquee (Scrolling Welcome Banner) */
 marquee {
-    background-color: var(--brand-dark-blue);
-    color: var(--brand-gold);
+    background-color: var(--navbar-bg); /* Use navbar background */
+    color: var(--primary-color); /* Marquee text in primary color */
     padding: 0.5rem 0;
     font-size: 1.1rem;
     font-weight: bold;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Specific elements that might need adjustment for new colors */
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), .25);
+}
+
+/* Utility classes to ensure consistency */
 .text-primary { color: var(--primary-color) !important; }
 .text-secondary { color: var(--secondary-color) !important; }
 .text-success { color: var(--success-color) !important; }
@@ -139,5 +204,5 @@ marquee {
 .bg-primary { background-color: var(--primary-color) !important; }
 .bg-secondary { background-color: var(--secondary-color) !important; }
 .bg-info { background-color: var(--info-color) !important; }
-.bg-light { background-color: var(--brand-light-grey) !important; }
-.bg-dark { background-color: var(--dark-color) !important; }
+.bg-light { background-color: var(--body-bg) !important; } /* Use body-bg for bg-light */
+.bg-dark { background-color: var(--heading-color) !important; } /* Use heading-color for bg-dark */
