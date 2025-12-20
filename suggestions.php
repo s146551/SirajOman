@@ -35,16 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: page5.php");
     exit();
 }
+
+$pageTitle = "Suggestion Submitted";
+include 'header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suggestion Submitted</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
     <div class="container mt-5">
         <div class="alert alert-info text-center">
             <h1 class="alert-heading">Submission Status</h1>
@@ -53,5 +47,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="page5.php" class="btn btn-primary">Go Back</a>
         </div>
     </div>
-</body>
-</html>
+<?php include 'footer.php'; ?>
