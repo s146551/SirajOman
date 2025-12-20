@@ -1,5 +1,6 @@
 <?php
 require_once 'db_config.php';
+require_once 'Location.class.php'; // Include the new Location class
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -20,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_id'])) {
 
 // Handle Search
 $search_term = '';
-$locations = [];
+$locations = []; // This will now hold Location objects
 $sql = "SELECT id, governorate, wilaya, attraction FROM locations";
 if (isset($_GET['search']) && !empty($_GET['search'])) {
     $search_term = $_GET['search'];
@@ -37,11 +38,36 @@ $result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $locations[] = $row;
+        // Create a Location object for each row
+        $locations[] = new Location($row['id'], $row['governorate'], $row['wilaya'], $row['attraction']);
     }
 }
 $stmt->close();
 $conn->close();
+
+// Function to display locations in an XHTML table using Location objects
+function displayLocationsTable($locationsArray) {
+    if (empty($locationsArray)) {
+        return '<div class="row text-center mb-3"><div class="col">No locations found.</div></div>';
+    }
+
+    $html = '';
+    foreach ($locationsArray as $loc) {
+        $html .= '<div class="row text-center mb-3 border-bottom align-items-center p-2">';
+        $html .= '<div class="col-md-3">' . htmlspecialchars($loc->getGovernorate()) . '</div>';
+        $html .= '<div class="col-md-3">' . htmlspecialchars($loc->getWilaya()) . '</div>';
+        $html .= '<div class="col-md-3">' . htmlspecialchars($loc->getAttraction()) . '</div>'; // Changed to col-md-3
+        $html .= '<div class="col-md-3 d-flex justify-content-around">'; // Changed to col-md-3 and added flex for buttons
+        $html .= '<a href="edit_location.php?id=' . $loc->getId() . '" class="btn btn-sm btn-info me-1">Edit</a>'; // Edit button
+        $html .= '<form action="page1.php" method="post" onsubmit="return confirm(\'Are you sure you want to delete this location?\');">';
+        $html .= '<input type="hidden" name="delete_id" value="' . $loc->getId() . '">';
+        $html .= '<button type="submit" class="btn btn-sm btn-danger">Delete</button>';
+        $html .= '</form>';
+        $html .= '</div>';
+        $html .= '</div>';
+    }
+    return $html;
+}
 
 $pageTitle = "Locations & Places";
 include 'header.php';
@@ -65,28 +91,11 @@ include 'header.php';
         <div class="row bg-info text-white text-center mb-2 fw-bold p-2">
             <div class="col-md-3">Governorates</div>
             <div class="col-md-3">Wilaya</div>
-            <div class="col-md-4">Tourist Attractions</div>
-            <div class="col-md-2">Action</div>
-        </div>
+            <div class="col-md-3">Tourist Attractions</div>
+            <div class="col-md-3">Action</div>
 
         <div id="locationsContainer">
-            <?php if (empty($locations)): ?>
-                <div class="row text-center mb-3"><div class="col">No locations found.</div></div>
-            <?php else: ?>
-                <?php foreach ($locations as $loc): ?>
-                <div class="row text-center mb-3 border-bottom align-items-center p-2">
-                    <div class="col-md-3"><?= htmlspecialchars($loc['governorate']) ?></div>
-                    <div class="col-md-3"><?= htmlspecialchars($loc['wilaya']) ?></div>
-                    <div class="col-md-4"><?= htmlspecialchars($loc['attraction']) ?></div>
-                    <div class="col-md-2">
-                        <form action="page1.php" method="post" onsubmit="return confirm('Are you sure you want to delete this location?');">
-                            <input type="hidden" name="delete_id" value="<?= $loc['id'] ?>">
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                        </form>
-                    </div>
-                </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+            <?php echo displayLocationsTable($locations); ?>
         </div>
     </div>
 </div>
