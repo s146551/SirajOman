@@ -1,24 +1,31 @@
 :root {
-    /* Modern, clean, and vibrant palette */
-    --primary-color: #20c997; /* Vibrant Teal/Mint Green */
-    --secondary-color: #6c757d; /* Muted Grey */
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --info-color: #17a2b8;
-    --warning-color: #ffc107;
+    /* Soft & Serene Palette */
+    --brand-main: #607D8B;   /* Desaturated Teal/Blue Grey */
+    --brand-accent: #FFAB91; /* Soft Peach/Coral */
+    --dark-bg: #37474F;      /* Dark Blue Grey for Navbar/Footer */
+    --body-bg: #ECEFF1;      /* Very Light Blue Grey for background */
+    --text-dark: #263238;    /* Dark Text */
+    --text-light: #FFFFFF;   /* White Text */
 
-    --navbar-bg: #212529; /* Darker, slightly softer black for contrast */
-    --footer-bg: #212529; /* Same as navbar for consistency */
-    --body-bg: #f8f9fa;   /* Very light gray/off-white */
-    --text-color: #343a40; /* Dark grey for readability */
-    --heading-color: #212529; /* Dark color for headings */
-    --accent-color: #fd7e14; /* Vibrant orange for highlights/links */
+    /* Mapped Bootstrap colors for consistency */
+    --primary-color: var(--brand-main);
+    --secondary-color: var(--brand-accent); /* Using accent for Bootstrap secondary */
+    --success-color: #A5D6A7; /* Gentle Green */
+    --danger-color: #EF9A9A;  /* Muted Red */
+    --info-color: #CFD8DC;    /* Light Blue Grey for info */
+    --warning-color: #FFF176; /* Soft Yellow */
+
+    --navbar-bg: var(--dark-bg);
+    --footer-bg: var(--dark-bg);
+    --heading-color: var(--text-dark);
+    --text-color: var(--text-dark);
+
 
     --font-family-base: 'Roboto', sans-serif;
     --heading-font-family: 'Montserrat', sans-serif;
 
     /* RGB values for dynamic use in JS or CSS functions */
-    --primary-color-rgb: 32, 201, 151; 
+    --primary-color-rgb: 96, 125, 139; /* RGB for #607D8B */
 }
 
 body {
@@ -32,15 +39,26 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font-family);
     color: var(--heading-color);
     margin-bottom: 0.75rem;
-    font-weight: 700; /* Make headings bolder */
+    font-weight: 700;
 }
 
 /* Global Image Styling */
 img {
-    border-radius: 0.5rem; /* Slightly rounded corners for all images */
+    border-radius: 0.5rem;
     max-width: 100%;
     height: auto;
-    display: block; /* Remove extra space below images */
+    display: block;
+}
+
+/* Specific Image Fixed Heights */
+.card-img-fixed-height {
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel-img-fixed-height {
+    height: 300px;
+    object-fit: cover;
 }
 
 /* Navbar Customization */
@@ -53,11 +71,11 @@ img {
 .navbar-brand {
     font-family: var(--heading-font-family);
     font-weight: 700;
-    color: var(--primary-color) !important; /* Brand name in primary color */
+    color: var(--text-light) !important; /* Brand name in white */
 }
 
 .navbar-nav .nav-link {
-    color: var(--text-light) !important; /* Light text for navigation */
+    color: var(--text-light) !important;
     padding-left: 1rem;
     padding-right: 1rem;
     transition: color 0.3s ease;
@@ -65,7 +83,7 @@ img {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-    color: var(--primary-color) !important; /* Primary color on hover/active */
+    color: var(--brand-accent) !important; /* Accent color on hover/active */
 }
 
 .dropdown-menu {
@@ -81,7 +99,7 @@ img {
 
 .dropdown-item:hover {
     background-color: var(--primary-color);
-    color: var(--navbar-bg); /* Dark text on primary hover */
+    color: var(--text-light);
 }
 
 
@@ -119,19 +137,20 @@ img {
 }
 
 .btn-primary:hover {
-    background-color: #1a9e78; /* Darkened primary */
-    border-color: #1a9e78;
+    background-color: #455A64; /* Darker shade of brand-main */
+    border-color: #455A64;
 }
 
 .btn-info {
     background-color: var(--info-color);
     border-color: var(--info-color);
     transition: all 0.3s ease;
+    color: var(--text-dark); /* Ensure dark text on light info background */
 }
 
 .btn-info:hover {
-    background-color: #138496; /* Darkened info */
-    border-color: #138496;
+    background-color: #B0BEC5; /* Darker shade of info */
+    border-color: #B0BEC5;
 }
 
 .btn-danger {
@@ -141,8 +160,8 @@ img {
 }
 
 .btn-danger:hover {
-    background-color: #c82333; /* Darkened danger */
-    border-color: #c82333;
+    background-color: #C62828; /* Darker shade of danger */
+    border-color: #C62828;
 }
 
 .btn-success {
@@ -152,8 +171,8 @@ img {
 }
 
 .btn-success:hover {
-    background-color: #218838; /* Darkened success */
-    border-color: #218838;
+    background-color: #7CB342; /* Darker shade of success */
+    border-color: #7CB342;
 }
 
 
@@ -166,20 +185,20 @@ footer {
 }
 
 footer a {
-    color: var(--primary-color) !important; /* Footer links in primary color */
+    color: var(--primary-color) !important;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 footer a:hover {
-    color: var(--accent-color) !important; /* Accent color on hover */
+    color: var(--brand-accent) !important;
     text-decoration: underline;
 }
 
 /* Marquee (Scrolling Welcome Banner) */
 marquee {
-    background-color: var(--navbar-bg); /* Use navbar background */
-    color: var(--primary-color); /* Marquee text in primary color */
+    background-color: var(--dark-bg);
+    color: var(--brand-accent);
     padding: 0.5rem 0;
     font-size: 1.1rem;
     font-weight: bold;
@@ -200,9 +219,13 @@ marquee {
 .text-info { color: var(--info-color) !important; }
 .text-warning { color: var(--warning-color) !important; }
 .text-danger { color: var(--danger-color) !important; }
+.text-muted { color: var(--text-dark) !important; }
 
 .bg-primary { background-color: var(--primary-color) !important; }
 .bg-secondary { background-color: var(--secondary-color) !important; }
+.bg-success { background-color: var(--success-color) !important; }
 .bg-info { background-color: var(--info-color) !important; }
-.bg-light { background-color: var(--body-bg) !important; } /* Use body-bg for bg-light */
-.bg-dark { background-color: var(--heading-color) !important; } /* Use heading-color for bg-dark */
+.bg-warning { background-color: var(--warning-color) !important; }
+.bg-danger { background-color: var(--danger-color) !important; }
+.bg-light { background-color: var(--body-bg) !important; }
+.bg-dark { background-color: var(--dark-bg) !important; }

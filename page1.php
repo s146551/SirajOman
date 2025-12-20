@@ -88,7 +88,7 @@ include 'header.php';
     </form>
 
     <div class="bg-light mt-4">
-        <div class="row bg-info text-white text-center mb-2 fw-bold p-2">
+        <div class="row bg-info text-dark text-center mb-2 fw-bold p-2">
             <div class="col-md-3">Governorates</div>
             <div class="col-md-3">Wilaya</div>
             <div class="col-md-3">Tourist Attractions</div>

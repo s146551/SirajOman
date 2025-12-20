@@ -76,7 +76,7 @@ include 'header.php';
             <hr class="my-4">
 
             <!-- Result -->
-            <div id="result" class="alert alert-info text-center fw-bold" style="display:none;"></div>
+            <div id="result" class="alert alert-info text-center fw-bold d-none"></div>
 
         </div>
     </div>

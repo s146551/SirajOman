@@ -23,7 +23,7 @@ include 'header.php';
         <!-- Place 1 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100">
-            <img src="./images/placeholder_image_01.jpg" class="card-img-top" alt="Sultan Qaboos Grand Mosque" style="height: 200px; object-fit: cover;" />
+            <img src="./images/placeholder_image_01.jpg" class="card-img-top card-img-fixed-height" alt="Sultan Qaboos Grand Mosque" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Sultan Qaboos Grand Mosque</h5>
               <p class="card-text flex-grow-1">
@@ -37,7 +37,7 @@ include 'header.php';
         <!-- Place 2 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100">
-            <img src="./images/placeholder_image_02.jpg" class="card-img-top" alt="Wahiba Sands" style="height: 200px; object-fit: cover;" />
+            <img src="./images/placeholder_image_02.jpg" class="card-img-top card-img-fixed-height" alt="Wahiba Sands" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Wahiba Sands</h5>
               <p class="card-text flex-grow-1">
@@ -51,7 +51,7 @@ include 'header.php';
         <!-- Place 3 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100">
-            <img src="./images/placeholder_image_03.jpg" class="card-img-top" alt="Nizwa Fort" style="height: 200px; object-fit: cover;" />
+            <img src="./images/placeholder_image_03.jpg" class="card-img-top card-img-fixed-height" alt="Nizwa Fort" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Nizwa Fort</h5>
               <p class="card-text flex-grow-1">
@@ -65,7 +65,7 @@ include 'header.php';
         <!-- Place 4 -->
         <div class="col-12 col-md-6 col-lg-3">
           <div class="card h-100">
-            <img src="./images/placeholder_image_04.jpg" class="card-img-top" alt="Wadi Shab" style="height: 200px; object-fit: cover;" />
+            <img src="./images/placeholder_image_04.jpg" class="card-img-top card-img-fixed-height" alt="Wadi Shab" />
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">Wadi Shab</h5>
               <p class="card-text flex-grow-1">
@@ -112,16 +112,16 @@ include 'header.php';
       <div id="omarSlideshow" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
         <div class="carousel-inner rounded">
           <div class="carousel-item active">
-            <img src="./images/placeholder_image_01.jpg" class="d-block w-100" alt="Grand Mosque" style="height: 300px; object-fit: cover;" />
+            <img src="./images/placeholder_image_01.jpg" class="d-block w-100 carousel-img-fixed-height" alt="Grand Mosque" />
           </div>
           <div class="carousel-item">
-            <img src="./images/placeholder_image_02.jpg" class="d-block w-100" alt="Wahiba Sands" style="height: 300px; object-fit: cover;" />
+            <img src="./images/placeholder_image_02.jpg" class="d-block w-100 carousel-img-fixed-height" alt="Wahiba Sands" />
           </div>
           <div class="carousel-item">
-            <img src="./images/placeholder_image_03.jpg" class="d-block w-100" alt="Nizwa Fort" style="height: 300px; object-fit: cover;" />
+            <img src="./images/placeholder_image_03.jpg" class="d-block w-100 carousel-img-fixed-height" alt="Nizwa Fort" />
           </div>
           <div class="carousel-item">
-            <img src="./images/placeholder_image_04.jpg" class="d-block w-100" alt="Wadi Shab" style="height: 300px; object-fit: cover;" />
+            <img src="./images/placeholder_image_04.jpg" class="d-block w-100 carousel-img-fixed-height" alt="Wadi Shab" />
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#omarSlideshow" data-bs-slide="prev">

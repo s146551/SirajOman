@@ -54,7 +54,7 @@ function initGame() {
     img.style.objectFit = 'cover'; /* Ensure images cover the area */
 
     const front = document.createElement('div');
-    front.className = 'd-flex align-items-center justify-content-center bg-info text-white h-100';
+    front.className = 'd-flex align-items-center justify-content-center bg-info text-dark h-100';
     front.textContent = '?';
     front.style.fontSize = '3rem';
     front.style.height = '150px'; /* Enforce consistent height */
