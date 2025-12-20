@@ -1,58 +1,134 @@
-<?php
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "siraj_oman";
-
-// 1. Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Define a class to represent a single Suggestion record
-class Suggestion {
-    public $name;
-    public $phone;
-    public $text;
-
-    public function __construct($name, $phone, $text) {
-        $this->name = $name;
-        $this->phone = $phone;
-        $this->text = $text;
-    }
-}
-
-// Function to iterate over an array of objects and render an XHTML table
-function displaySuggestions($suggestionList) {
-    echo "<h3>Submitted Suggestions</h3>";
-    echo "<table border='1' class='table table-bordered'>";
-    echo "<tr><th>Name</th><th>Phone</th><th>Suggestion</th></tr>";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Opinion</title>
     
-    foreach ($suggestionList as $item) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($item->name) . "</td>";
-        echo "<td>" . htmlspecialchars($item->phone) . "</td>";
-        echo "<td>" . htmlspecialchars($item->text) . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="page5.js"> </script>
+</head>
 
-// Capture incoming POST data
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $n = $_POST['name'];
-    $p = $_POST['phone'];
-    $s = $_POST['suggestions'];
+<!-- This page contain 2 forms one for suggestions and another for rating -->
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">Siraj Oman</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="page1.php">Locations & Places</a></li>
+            <li class="nav-item"><a class="nav-link" href="page2.php">Activities in Oman</a></li>
+            <li class="nav-item"><a class="nav-link" href="page3.php">Add a Location</a></li>
+            <li class="nav-item"><a class="nav-link" href="page4.php">Oman's Natural Wonders</a></li>
+            <li class="nav-item"><a class="nav-link" href="page5.php">Your Opinion</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tools & Fun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
+                <li><a class="dropdown-item" href="questionnaire.php">Feedback Form</a></li>
+                <li><a class="dropdown-item" href="calculator.php">Travel Calculator</a></li>
+                <li><a class="dropdown-item" href="funpage.php">Oman Memory Game</a></li>
+            </ul>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+   <div class="container my-4">
 
-    // Create an array and store the record as an object
-    $records = [];
-    $records[] = new Suggestion($n, $p, $s);
+    <!-- Suggestions Form -->
+    <div class="p-4 bg-light border rounded shadow-sm mb-5">
+        <h2 class="text-primary mb-3">Suggestions</h2>
 
-    // Render the output in XHTML format
-    displaySuggestions($records);
-}
-?>
+        <form action="suggestions.php" method="post" onsubmit="return validateSuggestions()">
+
+            <div class="row mb-3">
+                <div class="col-sm-6">
+                    <label class="form-label">Name:</label>
+                    <input type="text" id="userName" name="userName" class="form-control" required>
+                    <span id="nameError" class="text-danger small"></span>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="form-label">Phone Number:</label>
+                    <input type="text" id="userPhone" name="userPhone" class="form-control" required>
+                    <span id="phoneError" class="text-danger small"></span>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Please write your suggestions:</label>
+                <textarea id="userSuggestions" name="suggestions" class="form-control" rows="4" required></textarea>
+                <span id="suggestError" class="text-danger small"></span>
+            </div>
+
+            <input type="submit" class="btn btn-primary w-100">
+        </form>
+    </div>
+
+    <!-- Rating Form -->
+    <div class="p-4 bg-light border rounded shadow-sm">
+        <h2 class="text-success mb-3">Rate Our Website</h2>
+
+        <form action="ratings.php" method="post" onsubmit="return validateRating()">
+
+            <label class="form-label d-block">How many stars?</label>
+
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="1" class="form-check-input" id="rate1" required>
+                    <label class="form-check-label" for="rate1">1 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="2" class="form-check-input" id="rate2">
+                    <label class="form-check-label" for="rate2">2 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="3" class="form-check-input" id="rate3">
+                    <label class="form-check-label" for="rate3">3 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="4" class="form-check-input" id="rate4">
+                    <label class="form-check-label" for="rate4">4 ⭐</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="rate" value="5" class="form-check-input" id="rate5">
+                    <label class="form-check-label" for="rate5">5 ⭐</label>
+                </div>
+                <span id="rateError" class="text-danger d-block small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">What do you like in our website?</label>
+                <textarea id="userFeedback" name="feedback" class="form-control" rows="4" required></textarea>
+                <span id="feedbackError" class="text-danger small"></span>
+            </div>
+
+            <input type="submit" class="btn btn-success w-100">
+        </form>
+    </div>
+  </div>
+        
+    <footer class="bg-light text-center py-3 mt-4">
+        <p class="mb-0">&copy; 2025 Siraj Oman | 
+          <a href="index.php" class="text-primary">Home</a> | 
+          <a href="contact.php" class="text-primary">Contact</a> | 
+          <a href="about.php" class="text-primary">About</a>
+        </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,104 +1,169 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visitor Questionnaire</title>
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "siraj_oman";
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="questionnaire.js"></script>
+</head>
 
-// 1. Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="index.php">Siraj Oman</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="page1.php">Locations & Places</a></li>
+            <li class="nav-item"><a class="nav-link" href="page2.php">Activities in Oman</a></li>
+            <li class="nav-item"><a class="nav-link" href="page3.php">Add a Location</a></li>
+            <li class="nav-item"><a class="nav-link" href="page4.php">Oman's Natural Wonders</a></li>
+            <li class="nav-item"><a class="nav-link" href="page5.php">Your Opinion</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="toolsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tools & Fun
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="toolsDropdown">
+                <li><a class="dropdown-item" href="questionnaire.php">Feedback Form</a></li>
+                <li><a class="dropdown-item" href="calculator.php">Travel Calculator</a></li>
+                <li><a class="dropdown-item" href="funpage.php">Oman Memory Game</a></li>
+            </ul>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+<div class="container mt-5">
 
-// Define a class to represent a single Questionnaire record
-class VisitorRecord {
-    public $name;
-    public $email;
-    public $date;
-    public $purpose;
-    public $likes;
-    public $comments;
+    <div class="bg-white p-4 shadow rounded">
+        <h1 class="text-center text-success mb-4">Visitor Experience Questionnaire</h1>
+        <p class="text-center text-secondary">Please tell us about your visit. Your feedback helps us improve!</p>
 
-    // Constructor to initialize the record
-    public function __construct($n, $e, $d, $p, $l, $c) {
-        $this->name = $n;
-        $this->email = $e;
-        $this->date = $d;
-        $this->purpose = $p;
-        $this->likes = $l; // This will be a string of selected checkboxes
-        $this->comments = $c;
-    }
-}
+        <form id="questionnaireForm" action="questionnaire.php" method="post" class="mt-4" onsubmit="return validateForm()">
 
-// Function to iterate over an array of objects and display data in an XHTML table
-function displayVisitorTable($recordsArray) {
-    echo '<div class="container mt-5">';
-    echo '<h2 class="text-center text-success mb-4">Form Submission Summary</h2>';
-    echo '<table class="table table-striped table-bordered">';
-    echo '<thead class="table-dark">
-            <tr>
-                <th>Visitor Name</th>
-                <th>Email</th>
-                <th>Visit Date</th>
-                <th>Purpose</th>
-                <th>Enjoyed Items</th>
-                <th>Comments</th>
-            </tr>
-          </thead>';
-    echo '<tbody>';
+            <!-- Name + Email -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Your Name:</label>
+                    <input type="text" id="name" name="visitor_name" class="form-control" required>
+                    <span id="nameError" class="text-danger small"></span>
+                </div>
 
-    foreach ($recordsArray as $record) {
-        echo '<tr>';
-        echo '<td>' . htmlspecialchars($record->name) . '</td>';
-        echo '<td>' . htmlspecialchars($record->email) . '</td>';
-        echo '<td>' . htmlspecialchars($record->date) . '</td>';
-        echo '<td>' . htmlspecialchars($record->purpose) . '</td>';
-        echo '<td>' . htmlspecialchars($record->likes) . '</td>';
-        echo '<td>' . htmlspecialchars($record->comments) . '</td>';
-        echo '</tr>';
-    }
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Email (Gmail only):</label>
+                    <input type="email" id="email" name="visitor_email" class="form-control" required>
+                    <small class="text-muted">Must be a Gmail address.</small>
+                    <span id="emailError" class="text-danger small"></span>
+                </div>
+            </div>
 
-    echo '</tbody>';
-    echo '</table>';
-    echo '<div class="text-center"><a href="questionnaire.html" class="btn btn-primary">Back to Form</a></div>';
-    echo '</div>';
-}
+            <!-- Date of Visit -->
+            <div class="mb-4">
+                <label class="form-label fw-bold">Date of visit:</label>
+                <input type="date" id="visitDate" name="visit_date" class="form-control" required>
+                <span id="dateError" class="text-danger small"></span>
+            </div>
 
-// Main Logic
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. Capture POST data
-    $name = $_POST['visitor_name'];
-    $email = $_POST['visitor_email'];
-    $date = $_POST['visit_date'];
-    $purpose = $_POST['purpose'];
-    $comments = $_POST['comments'];
-    
-    // Handle checkboxes (likes) - combine them into a string
-    $likesList = isset($_POST['likes']) ? implode(", ", $_POST['likes']) : "None selected";
+            <!-- First Time Visit -->
+            <div class="mb-4">
+                <label class="form-label fw-bold mb-2">Is this your first time visiting?</label><br>
 
-    // 2. Create an array to hold our objects
-    $allRecords = [];
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="firstTime" value="yes" class="form-check-input" id="fy" required>
+                    <label class="form-check-label" for="fy">Yes</label>
+                </div>
 
-    // 3. Create a new object from the class and add it to the array
-    $currentVisitor = new VisitorRecord($name, $email, $date, $purpose, $likesList, $comments);
-    $allRecords[] = $currentVisitor;
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="firstTime" value="no" class="form-check-input" id="fn">
+                    <label class="form-check-label" for="fn">No</label>
+                </div>
+                <br><span id="firstTimeError" class="text-danger small"></span>
+            </div>
 
-    // 4. Render the XHTML Output
-    ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Submission Result</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body class="bg-light">
-        <?php displayVisitorTable($allRecords); ?>
-    </body>
-    </html>
-    <?php
-}
-?>
+            <!-- Purpose -->
+            <div class="mb-4">
+                <label class="form-label fw-bold">Purpose of your visit:</label>
+                <select id="purpose" name="purpose" class="form-select" required>
+                    <option value="none">Select...</option>
+                    <option value="tourism">Tourism</option>
+                    <option value="study">Study</option>
+                    <option value="work">Work</option>
+                    <option value="family">Family Visit</option>
+                    <option value="other">Other</option>
+                </select>
+                <span id="purposeError" class="text-danger small"></span>
+            </div>
+
+            <!-- Enjoyed Items -->
+            <div class="mb-4">
+                <label class="form-label fw-bold">What did you enjoy the most? (Select at least one)</label>
+
+                <div class="form-check">
+                    <input type="checkbox" name="likes" value="Nature" class="form-check-input" id="like1">
+                    <label class="form-check-label" for="like1">Nature</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="likes" value="Safety" class="form-check-input" id="like2">
+                    <label class="form-check-label" for="like2">Safety</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="likes" value="Cleanliness" class="form-check-input" id="like3">
+                    <label class="form-check-label" for="like3">Cleanliness</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="likes" value="Food" class="form-check-input" id="like4">
+                    <label class="form-check-label" for="like4">Food</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" name="likes" value="weather" class="form-check-input" id="like5">
+                    <label class="form-check-label" for="like5">weather</label>
+                </div>
+
+                 <div class="form-check">
+                    <input type="checkbox" name="likes" value="Culture" class="form-check-input" id="like6">
+                    <label class="form-check-label" for="like5">Culture</label>
+                </div>
+                <span id="likesError" class="text-danger small"></span>
+            </div>
+
+            <!-- Comments -->
+            <div class="mb-4">
+                <label class="form-label fw-bold">Additional Comments:</label>
+                <textarea id="comments" name="comments" class="form-control" rows="4" required></textarea>
+                <span id="commentsError" class="text-danger small"></span>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-success w-100">Submit Feedback</button>
+
+        </form>
+    </div>
+
+</div>
+
+<footer class="bg-light text-center py-3 mt-4">
+    <p class="mb-0">&copy; 2025 Siraj Oman | 
+      <a href="index.php" class="text-primary">Home</a> | 
+      <a href="contact.php" class="text-primary">Contact</a> | 
+      <a href="about.php" class="text-primary">About</a>
+    </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>

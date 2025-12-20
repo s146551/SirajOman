@@ -18,13 +18,13 @@
         <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="page1.html">Locations & Places</a></li>
-            <li class="nav-item"><a class="nav-link" href="page2.html">Activities in Oman</a></li>
+            <li class="nav-item"><a class="nav-link" href="page1.php">Locations & Places</a></li>
+            <li class="nav-item"><a class="nav-link" href="page2.php">Activities in Oman</a></li>
             <li class="nav-item"><a class="nav-link" href="page3.html">Add a Location</a></li>
-            <li class="nav-item"><a class="nav-link" href="page4.html">Oman's Natural Wonders</a></li>
+            <li class="nav-item"><a class="nav-link" href=".php">Oman's Natural Wonders</a></li>
             <li class="nav-item"><a class="nav-link" href="page5.html">Your Opinion</a></li>
             <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
@@ -131,7 +131,7 @@
     <footer class="bg-light text-center py-3 mt-4">
         <p class="mb-0">&copy; 2025 Siraj Oman | 
           <a href="index.html" class="text-primary">Home</a> | 
-          <a href="contact.html" class="text-primary">Contact</a> | 
+          <a href="contact.php" class="text-primary">Contact</a> | 
           <a href="about.html" class="text-primary">About</a>
         </p>
     </footer>
